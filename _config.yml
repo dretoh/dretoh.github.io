@@ -22,11 +22,11 @@ author: dretoh
 navbar-links:
   About Me: "aboutme"
   Resources:
-#    - Bluetooth: ""
-#    - V8: ""
-    - Beautiful Jekyll: ""
-#    - Case Study: ""
-    - Learn markdown: ""
+    - Bluetooth: ""
+    - V8: ""
+#    - Beautiful Jekyll: ""
+    - Case Study: ""
+#    - Learn markdown: ""
   Author's home: "https://dretoh.tistory.com/"
 
 ################
@@ -57,7 +57,7 @@ social-network-links:
   #rss: true  # remove this line if you don't want to show an RSS link at the bottom
   #facebook: deanattali
   github: dretoh
-  twitter: @byte_carter
+  twitter: byte_carter
   #patreon: DeanAttali
   #youtube: "@daattali"
   #whatsapp: 15551212
