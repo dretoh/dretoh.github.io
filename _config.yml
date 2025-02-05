@@ -22,11 +22,11 @@ author: dretoh
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - Bluetooth: ""
-    - V8: ""
-#    - Beautiful Jekyll: ""
-    - Case Study: ""
-#    - Learn markdown: ""
+#    - Bluetooth: ""
+#    - V8: ""
+    - Beautiful Jekyll: ""
+#    - Case Study: ""
+    - Learn markdown: ""
   Author's home: "https://dretoh.tistory.com/"
 
 ################
