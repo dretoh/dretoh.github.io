@@ -8,8 +8,6 @@ author_profile: true
 {% include base_path %}
 
 {% comment %}
-  먼저 카테고리명과 대응되는 태그 값을 배열로 생성합니다.
-  순서는 서로 맞춰야 합니다.
 {% endcomment %}
 {% assign categories = "Capture The Flag,WarGame,Browser,Bluetooth" | split: "," %}
 {% assign tags = "ctf,wargame,browser,bluetooth" | split: "," %}
@@ -19,10 +17,8 @@ author_profile: true
   {% assign current_tag = tags[forloop.index0] %}
   
   {% comment %}
-    'where_exp' 필터를 사용하여 각 포스트의 tags 배열에 현재 태그가 포함되어 있는 포스트만 필터링한 후,
-    'sort' 필터와 'reverse'를 사용해 최신 글부터 정렬합니다.
   {% endcomment %}
-  {% assign filtered_posts = site.portfolio | where_exp:"post", "post.tags contains current_tag" | sort:"date" | reverse %}
+  {% assign filtered_posts = site.nav | where_exp:"post", "post.tags contains current_tag" | sort:"date" | reverse %}
   
   {% for post in filtered_posts %}
     {% include archive-single.html %}
