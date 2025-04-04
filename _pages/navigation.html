@@ -18,7 +18,7 @@ author_profile: true
   
   {% comment %}
   {% endcomment %}
-  {% assign filtered_posts = site.nav | where_exp:"post", "post.tags contains current_tag" | sort:"date" | reverse %}
+  {% assign filtered_posts = site.navigation | where_exp:"post", "post.tags contains current_tag" | sort:"date" | reverse %}
   
   {% for post in filtered_posts %}
     {% include archive-single.html %}
