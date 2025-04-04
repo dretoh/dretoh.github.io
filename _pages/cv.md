@@ -11,54 +11,35 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Bachelor of Computer Science, 2nd Year
+  * Konkuk University
+  * 2021.03 ~ 2028.03 (expected)
+
+Organization
+======
+* WhiteHat School (2nd Cohort)
+  * KITRI (Korea Information Technology Research Institute)
+  * 2024.03.11 ~ 2024.09.26
+* Korea Cyber Academy (1st Cohort)
+  * KACS (Korean Association of Cybersecurity Studies)
+  * 2024.07.02 ~ 2024.08.20
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Internship in Autocrypt. 
+  * Bluetooth Vulnerability Research
+  * Spring 2025
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+Contests & Awards
+======
+* WhiteHat School Top 20 & Team Project Award
+  * KITRI (Korea Information Technology Research Institute)
+  * 2024-09-26
+* AutoHack 2024 
+  * 3rd place
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
+Military Service
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* The Republic of Korea's Army, Honorable Discharged 
+  * Armored Artillery
+  * 2022.04 ~ 2023.09 (Sergeant) 
