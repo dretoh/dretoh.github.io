@@ -21,6 +21,8 @@ author_profile: true
   {% assign filtered_posts = site.navigation | where_exp:"post", "post.tags contains current_tag" | sort:"date" | reverse %}
   
   {% for post in filtered_posts %}
+    <div id="archive_posts" style="margin-left: 15px;">
     {% include archive-single.html %}
+    </div>
   {% endfor %}
 {% endfor %}

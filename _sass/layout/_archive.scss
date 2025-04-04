@@ -52,6 +52,7 @@
 .page__content {
 
   .archive__item-title {
+    font-size: $type-size-5;
     margin-top: 1em;
     border-bottom: none;
   }
@@ -59,7 +60,7 @@
 
 .archive__item-excerpt {
   margin-top: 0;
-  font-size: $type-size-6;
+  font-size: $type-size-5;
 
   & + p {
     text-indent: 0;
