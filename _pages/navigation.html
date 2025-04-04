@@ -22,7 +22,7 @@ author_profile: true
     'where_exp' 필터를 사용하여 각 포스트의 tags 배열에 현재 태그가 포함되어 있는 포스트만 필터링한 후,
     'sort' 필터와 'reverse'를 사용해 최신 글부터 정렬합니다.
   {% endcomment %}
-  {% assign filtered_posts = site.portfolio | where_exp:"post", "post.tags contains current_tag" | sort:"date" | reverse %}
+  {% assign filtered_posts = site.nav | where_exp:"post", "post.tags contains current_tag" | sort:"date" | reverse %}
   
   {% for post in filtered_posts %}
     {% include archive-single.html %}
