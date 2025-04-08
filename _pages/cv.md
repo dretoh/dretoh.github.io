@@ -42,4 +42,4 @@ Military Service
 ======
 * The Republic of Korea's Army, Honorable Discharged 
   * Armored Artillery
-  * 2022.04 ~ 2023.09 (Sergeant) 
+  * 2022.03 ~ 2023.09 (Sergeant) 
