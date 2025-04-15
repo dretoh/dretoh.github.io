@@ -35,7 +35,7 @@ Contests & Awards
 * WhiteHat School Top 20 & Team Project Award
   * KITRI (Korea Information Technology Research Institute)
   * 2024-09-26
-* AutoHack 2024 
+* AutoHack 2024 (Team St3p_up) 
   * 3rd place
 
 Military Service
