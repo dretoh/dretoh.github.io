@@ -1,0 +1,56 @@
+* {
+  margin: 0px auto;
+  padding: 0px;  
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  color: black;
+}
+
+header {
+  height: 195px;
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  border-bottom: 2px dotted grey;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.header-logo {
+  height: 150px;
+}
+
+#dretoh {
+  font-size: 20px;
+  height: 30px;
+  width: 500px;
+  border-bottom: 1px solid black;
+}
+
+#header-menu-container {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+#header-menu-container li {
+  display: inline-block;
+  width: 100px;
+  margin: 0px 50px;
+  text-align: center;
+}
+
+footer {
+  height: 195px;
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  border-top: 2px dotted grey;
+}
