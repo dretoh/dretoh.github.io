@@ -18,7 +18,8 @@ async function handleLocation() {
   let page = (path === '/' || path.endsWith('/index.html') || path === '') ? 'default' : path.substring(1);
   page = page.split('/')[0] || 'default';
   try {
-    const res = await fetch(`assets/${page}.md`);
+    
+    const res = await fetch(`/assets/${page}.md`);
     if (!res.ok) throw new Error('Not found');
     const mdText = await res.text();
     contentDiv.innerHTML = marked.parse(mdText);
