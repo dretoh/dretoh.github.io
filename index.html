@@ -1,43 +1,44 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My Blog</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>myhome</title>
 
-    <!-- base 태그 제거 -->
-    <link rel="stylesheet" href="./css/default.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/default.css">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script defer src="./js/default.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="header-logo">
-        <a href="index.html">
-          <img src="./img/dretoh.png" class="logo" alt="Logo"/>
-        </a>
-        <div id="dretoh">DRETOH</div>
-      </div>
-      <div class="header-menu">
-        <ul id="header-menu-container">
-          <li><a href="/aboutme" data-link>AboutMe</a></li>
-          <li><a href="/writeups" data-link>WriteUps</a></li>
-          <li><a href="/projects" data-link>Projects</a></li>
-          <li><a href="/posts" data-link>Posts</a></li>
-        </ul>
-      </div>
-    </header>
-    <div id="wrapper">
-      <div id="posts"></div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script defer src="./js/default.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-logo">
+      <a id="root" href="index.html">
+        <img src="./img/dretoh.png" class="logo" alt="Logo"/>
+      </a>
+      <div id="dretoh">DRETOH</div>
     </div>
-    <footer>
-      <div class="footer-logo"></div>
-      <div class="footer-menu">TEST</div>
-    </footer>
-  </body>
+    <div class="header-menu">
+      <ul id="header-menu-container">
+        <li><a href="/aboutme" data-link>AboutMe</a></li>
+        <li><a href="/writeups" data-link>WriteUps</a></li>
+        <li><a href="/projects" data-link>Projects</a></li>
+        <li><a href="/posts" data-link>Posts</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div id="wrapper">
+    <div id="posts"></div>
+  </div>
+
+  <footer>
+    <div class="footer-logo"></div>
+    <div class="footer-menu">TEST</div>
+  </footer>
+</body>
 </html>

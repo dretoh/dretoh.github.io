@@ -1,62 +1,110 @@
 * {
-  margin: 0px auto;
-  padding: 0px;  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
-  font-style: normal;
   color: black;
+}
+#root {
+  display: block;
+}
+body {
+  background-color: #EFEFEE;
 }
 
 header {
-  height: 195px;
   text-align: center;
   background-color: white;
   width: 100%;
   border-bottom: 2px dotted grey;
+  padding-bottom: 10px;
 }
 
 .logo {
-  height: 100px;
   width: 100px;
+  height: auto;
   margin-bottom: 10px;
 }
 
 .header-logo {
-  height: 150px;
+  padding: 20px;
 }
 
 #dretoh {
   font-size: 20px;
-  height: 30px;
-  width: 500px;
   border-bottom: 1px solid black;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.header-menu {
+  margin-top: 10px;
 }
 
 #header-menu-container {
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: 10px;
+  padding: 10px 0;
 }
 
 #header-menu-container li {
-  display: inline-block;
-  width: 100px;
-  margin: 0px 50px;
-  text-align: center;
+  padding: 10px 20px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+#header-menu-container li a {
+  color: black;
+  font-weight: 500;
+}
+
+#header-menu-container li:hover {
+  background-color: #6C6C6C;
+}
+
+#header-menu-container li:hover a {
+  color: white;
+}
+
+#wrapper {
+  padding: 30px;
+  background-color: #EFEFEE;
+  min-height: 300px;
 }
 
 footer {
-  height: 195px;
   text-align: center;
   background-color: white;
   width: 100%;
   border-top: 2px dotted grey;
+  padding: 20px;
 }
-#wrapper {
-  padding: 30px;
-}
-#wrapper, #posts {
-  background-color: #EFEFEE;
+
+/* 반응형 미디어 쿼리 */
+@media (max-width: 600px) {
+  .logo {
+    width: 80px;
+  }
+
+  #dretoh {
+    font-size: 16px;
+  }
+
+  #header-menu-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #header-menu-container li {
+    width: 80%;
+    text-align: center;
+  }
+
+  #wrapper {
+    padding: 15px;
+  }
 }
