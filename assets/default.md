@@ -1,34 +1,63 @@
-<h2>Welcome to my playground</h2>
-<p>Try relaxing with this bouncing ball animation :)</p>
-
-<canvas id="ballCanvas" width="500" height="300" style="border:1px solid #ccc;"></canvas>
+<div style="width: 100%; height: 500px; background-color: #f0f0f0; position: relative; overflow: hidden;">
+  <div id="ball" style="
+    width: 40px;
+    height: 40px;
+    background-color: crimson;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  "></div>
+</div>
 
 <script>
-  const canvas = document.getElementById('ballCanvas');
-  const ctx = canvas.getContext('2d');
+  const ball = document.getElementById('ball');
+  const container = ball.parentElement;
+  const speedFactor = 0.15;
+  let animationFrame;
 
-  let x = canvas.width / 2;
-  let y = canvas.height / 2;
-  let dx = 2;
-  let dy = 3;
-  const radius = 15;
-
-  function drawBall() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
-    ctx.fillStyle = "#6C6C6C";
-    ctx.fill();
-    ctx.closePath();
-
-    if (x + dx > canvas.width - radius || x + dx < radius) dx = -dx;
-    if (y + dy > canvas.height - radius || y + dy < radius) dy = -dy;
-
-    x += dx;
-    y += dy;
-
-    requestAnimationFrame(drawBall);
+  function resetBall() {
+    ball.style.left = "50%";
+    ball.style.top = "50%";
   }
 
-  drawBall();
+  function moveBallAway(mouseX, mouseY) {
+    const rect = container.getBoundingClientRect();
+    const ballRect = ball.getBoundingClientRect();
+
+    const ballX = ballRect.left + ballRect.width / 2;
+    const ballY = ballRect.top + ballRect.height / 2;
+
+    const dx = ballX - mouseX;
+    const dy = ballY - mouseY;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist < 100) {
+      const moveX = dx * speedFactor;
+      const moveY = dy * speedFactor;
+
+      let newLeft = ball.offsetLeft + moveX;
+      let newTop = ball.offsetTop + moveY;
+
+      // Boundary check
+      if (
+        newLeft < 0 || newLeft + ball.offsetWidth > container.clientWidth ||
+        newTop < 0 || newTop + ball.offsetHeight > container.clientHeight
+      ) {
+        resetBall();
+        return;
+      }
+
+      ball.style.left = `${newLeft}px`;
+      ball.style.top = `${newTop}px`;
+    }
+  }
+
+  container.addEventListener('mousemove', (e) => {
+    cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(() => {
+      moveBallAway(e.clientX, e.clientY);
+    });
+  });
 </script>
