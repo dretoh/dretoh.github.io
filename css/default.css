@@ -25,6 +25,12 @@ header {
   width: 100px;
   height: auto;
   margin-bottom: 10px;
+  border-radius: 30%;
+  border-
+}
+.logo:hover {
+  opacity: 30%;
+
 }
 
 .header-logo {
