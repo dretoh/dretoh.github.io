@@ -134,3 +134,46 @@ function initBallGame() {
   });
 }
 
+
+
+/* 마우스 자동 스크롤 */
+
+// 스크롤 임계치(픽셀 단위)와 스크롤 속도(픽셀 단위) 설정
+const threshold = 50; // 창 상하 50px 영역
+const scrollSpeed = 5; // 매 틱마다 5px 이동
+let autoScrollInterval = null;
+
+// 마우스 위치에 따라 자동 스크롤을 시작하거나 정지하는 함수
+document.addEventListener('mousemove', function(event) {
+	// 위쪽 영역에 마우스가 있을 경우 (스크롤 업)
+	if (event.clientY < threshold) {
+		// 이미 스크롤 동작 중이라면 추가 실행하지 않음
+		if (!autoScrollInterval) {
+			autoScrollInterval = setInterval(() => {
+				window.scrollBy(0, -scrollSpeed);
+			}, 16); // 약 60fps 기준
+		}
+	}
+	// 아래쪽 영역에 마우스가 있을 경우 (스크롤 다운)
+	else if (event.clientY > window.innerHeight - threshold) {
+		if (!autoScrollInterval) {
+			autoScrollInterval = setInterval(() => {
+				window.scrollBy(0, scrollSpeed);
+			}, 16);
+		}
+	}
+	// 마우스가 중앙 영역에 있을 때 스크롤 정지
+	else {
+		if (autoScrollInterval) {
+			clearInterval(autoScrollInterval);
+			autoScrollInterval = null;
+		}
+	}
+});
+
+document.addEventListener('mouseleave', () => {
+	if (autoScrollInterval) {
+		clearInterval(autoScrollInterval);
+		autoScrollInterval = null;
+	}
+});
