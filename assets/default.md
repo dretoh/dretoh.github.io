@@ -1,4 +1,4 @@
-<div style="width: 100%; height: 500px; background-color: #f0f0f0; position: relative; overflow: hidden;">
+<div id="game-container" style="width: 100%; height: 500px; background-color: #f0f0f0; position: relative; overflow: hidden;">
   <div id="ball" style="
     width: 40px;
     height: 40px;
@@ -13,51 +13,62 @@
 
 <script>
   const ball = document.getElementById('ball');
-  const container = ball.parentElement;
-  const speedFactor = 0.15;
-  let animationFrame;
+  const container = document.getElementById('game-container');
 
-  function resetBall() {
-    ball.style.left = "50%";
-    ball.style.top = "50%";
+  const speedFactor = 8;
+
+  // 초기 위치 중앙 설정
+  let ballX = container.clientWidth / 2 - 20;
+  let ballY = container.clientHeight / 2 - 20;
+
+  // 위치 업데이트 함수
+  function updateBallPosition() {
+    ball.style.left = `${ballX}px`;
+    ball.style.top = `${ballY}px`;
   }
 
-  function moveBallAway(mouseX, mouseY) {
+  // 벽에 부딪혔는지 체크
+  function isOutOfBounds() {
+    return (
+      ballX < 0 || ballX + 40 > container.clientWidth ||
+      ballY < 0 || ballY + 40 > container.clientHeight
+    );
+  }
+
+  // 리셋 함수
+  function resetBall() {
+    ballX = container.clientWidth / 2 - 20;
+    ballY = container.clientHeight / 2 - 20;
+    updateBallPosition();
+  }
+
+  resetBall(); // 초기화
+
+  container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
-    const ballRect = ball.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
 
-    const ballX = ballRect.left + ballRect.width / 2;
-    const ballY = ballRect.top + ballRect.height / 2;
+    const centerX = ballX + 20;
+    const centerY = ballY + 20;
 
-    const dx = ballX - mouseX;
-    const dy = ballY - mouseY;
+    const dx = centerX - mouseX;
+    const dy = centerY - mouseY;
     const dist = Math.sqrt(dx * dx + dy * dy);
 
     if (dist < 100) {
-      const moveX = dx * speedFactor;
-      const moveY = dy * speedFactor;
+      // 거리가 가까울수록 속도 증가
+      const moveX = (dx / dist) * (100 - dist) * 0.1 * speedFactor;
+      const moveY = (dy / dist) * (100 - dist) * 0.1 * speedFactor;
 
-      let newLeft = ball.offsetLeft + moveX;
-      let newTop = ball.offsetTop + moveY;
+      ballX += moveX;
+      ballY += moveY;
 
-      // Boundary check
-      if (
-        newLeft < 0 || newLeft + ball.offsetWidth > container.clientWidth ||
-        newTop < 0 || newTop + ball.offsetHeight > container.clientHeight
-      ) {
+      if (isOutOfBounds()) {
         resetBall();
-        return;
+      } else {
+        updateBallPosition();
       }
-
-      ball.style.left = `${newLeft}px`;
-      ball.style.top = `${newTop}px`;
     }
-  }
-
-  container.addEventListener('mousemove', (e) => {
-    cancelAnimationFrame(animationFrame);
-    animationFrame = requestAnimationFrame(() => {
-      moveBallAway(e.clientX, e.clientY);
-    });
   });
 </script>
