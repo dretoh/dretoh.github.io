@@ -54,3 +54,9 @@ footer {
   width: 100%;
   border-top: 2px dotted grey;
 }
+#wrapper {
+  padding: 30px;
+}
+#wrapper, #posts {
+  background-color: #EFEFEE;
+}
