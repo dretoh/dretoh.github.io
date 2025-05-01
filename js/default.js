@@ -26,9 +26,13 @@ async function handleLocation() {
     contentDiv.innerHTML = `<h2>Page Not Found</h2>`;
   }
 }
+
 document.addEventListener("DOMContentLoaded", () => {
 	const container = document.getElementById("game-container");
-	if (!container) return;
+	if (!container) {
+		alert("no");
+		return;
+	}
 
 	container.innerHTML = `
     <div style="width:100%;height:500px;position:relative;background:#f0f0f0;overflow:hidden;">
