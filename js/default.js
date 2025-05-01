@@ -18,7 +18,7 @@ async function handleLocation() {
   page = page.split('/')[0] || 'default';
 
   try {
-    const res = await fetch(`/assets/${page}.md`);
+    const res = await fetch(`./assets/${page}.md`);  // 상대 경로로 수정
     if (!res.ok) throw new Error('Not found');
     const mdText = await res.text();
     contentDiv.innerHTML = marked.parse(mdText);
