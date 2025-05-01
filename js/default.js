@@ -57,13 +57,54 @@ function initBallGame() {
     );
   }
 
-  function resetBall() {
+  function createDomExplosion(x, y) {
+    const colors = ["cyan", "magenta", "yellow", "blue", "lime", "red"];
+    const particleCount = 20;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement("div");
+      const angle = Math.random() * Math.PI * 2;
+      const distance = Math.random() * 60 + 20;
+      const size = Math.random() * 6 + 4;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+
+      particle.style.position = "absolute";
+      particle.style.left = `${x}px`;
+      particle.style.top = `${y}px`;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.borderRadius = "50%";
+      particle.style.backgroundColor = color;
+      particle.style.pointerEvents = "none";
+      particle.style.opacity = "1";
+      particle.style.transition = "transform 0.5s ease-out, opacity 0.5s ease-out";
+      particle.style.transform = `translate(0px, 0px)`;
+
+      container.appendChild(particle);
+
+      // 트리거 트랜지션
+      requestAnimationFrame(() => {
+        particle.style.transform = `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`;
+        particle.style.opacity = "0";
+      });
+
+      // 자동 제거
+      setTimeout(() => {
+        particle.remove();
+      }, 600);
+    }
+  }
+
+  function resetBallWithExplosion() {
+    const centerX = ballX + 20;
+    const centerY = ballY + 20;
+    createDomExplosion(centerX, centerY);
     ballX = container.clientWidth / 2 - 20;
     ballY = container.clientHeight / 2 - 20;
     updateBallPosition();
   }
 
-  resetBall();
+  resetBallWithExplosion();
 
   container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
@@ -85,10 +126,11 @@ function initBallGame() {
       ballY += moveY;
 
       if (isOutOfBounds()) {
-        resetBall();
+        resetBallWithExplosion();
       } else {
         updateBallPosition();
       }
     }
   });
 }
+
