@@ -5,6 +5,7 @@
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   color: black;
+
 }
 #root-box {
   margin-top: 50px;
@@ -76,27 +77,3 @@ footer {
   padding: 20px;
 }
 
-/* 반응형 미디어 쿼리 */
-@media (max-width: 600px) {
-  .logo {
-    width: 80px;
-  }
-
-  #dretoh {
-    font-size: 16px;
-  }
-
-  #header-menu-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #header-menu-container li {
-    width: 80%;
-    text-align: center;
-  }
-
-  #wrapper {
-    padding: 15px;
-  }
-}

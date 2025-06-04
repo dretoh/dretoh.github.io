@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		const w = ctx.measureText(ch).width;
 		totalTextWidth += w;
 	}
-	totalTextWidth += letterSpacing * (txt.length + 5); //scaling(+5)
+	totalTextWidth += letterSpacing * (txt.length + 1); //scaling
 
     // 캔버스 기준 중앙 정렬
     let x = (cssWidth - totalTextWidth) / 2;
