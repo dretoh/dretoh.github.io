@@ -125,6 +125,12 @@ document.addEventListener('click', (event) => {
 });
 
 async function handleLocation() {
+  marked.setOptions({
+    gfm: true,        // GitHub-flavored markdown
+    breaks: true,     // Enter -> <br>
+    smartLists: true,
+    smartypants: true 
+  });	
   let path = window.location.pathname;
   let page = (path === '/' || path.endsWith('/index.html') || path === '') ? 'default' : path.substring(1);
   page = page.split('/')[0] || 'default';
