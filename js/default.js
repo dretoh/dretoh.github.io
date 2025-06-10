@@ -147,14 +147,14 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 
-$(document).ready(function() {
+$(function() {
   marked.setOptions({
     gfm: true,
     breaks: true,
     smartLists: true,
     smartypants: true,
     headerIds: true,
-    mangle: false,
+    mangle: true,
     highlight: function(code, lang) {
       if (window.hljs && hljs.getLanguage(lang)) {
         return hljs.highlight(lang, code).value;
@@ -169,21 +169,18 @@ $(document).ready(function() {
       .done(function(raw) {
         const html = marked(raw);
         $('#posts').html(html);
-        // 반응형 이미지 및 테이블 처리
         $('#posts img').css({ 'max-width': '100%', 'height': 'auto' });
         $('#posts table').css({ 'max-width': '100%', 'overflow-x': 'auto', 'display': 'block' });
       })
       .fail(function() {
-        $('#posts').html('<p>Failed to load Content</p>');
+        $('#posts').html('<p>Failed to load content :(</p>');
       });
   }
 
- 
   $('#menu li').on('click', function() {
     const section = $(this).data('section');
     if (section) loadMarkdown(section);
   });
 
- 
   loadMarkdown('default');
 });
