@@ -1,15 +1,14 @@
-//logo 
-const canvas = document.getElementById('dretoh');
-const ctx = canvas.getContext('2d');
 
-canvas.addEventListener('click', () => {
-  window.location.href = '/index.html';
-});
 
 window.addEventListener('DOMContentLoaded', function() {
-	const canvas = document.getElementById('dretoh');
-	const ctx = canvas.getContext('2d');
-  
+	let canvas = $('#dretoh');
+
+	canvas.on('click', () => {
+  	window.location.href = '/index.html';
+	});	
+	canvas = canvas[0];
+	const ctx = canvas.getContext('2d');  
+
 	const ratio = window.devicePixelRatio || 1;
 	const cssWidth = canvas.clientWidth;
 	const cssHeight = canvas.clientHeight;
