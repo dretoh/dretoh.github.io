@@ -166,7 +166,7 @@ $(function() {
     const mdPath = `assets/${section}.md`;
     $.get(mdPath)
       .done(function(raw) {
-        const html = marked(raw);
+        const html = marked.parse(raw);
         $('#posts').html(html);
         $('#posts img').css({ 'max-width': '100%', 'height': 'auto' });
         $('#posts table').css({ 'max-width': '100%', 'overflow-x': 'auto', 'display': 'block' });
