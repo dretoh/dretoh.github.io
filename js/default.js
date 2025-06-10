@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		const w = ctx.measureText(ch).width;
 		totalTextWidth += w;
 	}
-	totalTextWidth += letterSpacing * (txt.length + 1); //scaling
+	totalTextWidth += letterSpacing * (txt.length + 3); //scaling
 
     // 캔버스 기준 중앙 정렬
     let x = (cssWidth - totalTextWidth) / 2;
@@ -109,38 +109,81 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Post
-const contentDiv = document.getElementById('posts');
+// // Post
+// const contentDiv = document.getElementById('posts');
 
-window.addEventListener('DOMContentLoaded', handleLocation);
-window.addEventListener('popstate', handleLocation);
+// window.addEventListener('DOMContentLoaded', handleLocation);
+// window.addEventListener('popstate', handleLocation);
 
-document.addEventListener('click', (event) => {
-  if (event.target.matches('a[data-link]')) {
-    event.preventDefault();
-    const href = event.target.getAttribute('href');
-    history.pushState(null, null, href);
-    handleLocation();
-  }
-});
+// document.addEventListener('click', (event) => {
+//   if (event.target.matches('a[data-link]')) {
+//     event.preventDefault();
+//     const href = event.target.getAttribute('href');
+//     history.pushState(null, null, href);
+//     handleLocation();
+//   }
+// });
 
-async function handleLocation() {
+// async function handleLocation() {
+//   marked.setOptions({
+//     gfm: true,        // GitHub-flavored markdown
+//     breaks: true,     // Enter -> <br>
+//     smartLists: true,
+//     smartypants: true 
+//   });	
+//   let path = window.location.pathname;
+//   let page = (path === '/' || path.endsWith('/index.html') || path === '') ? 'default' : path.substring(1);
+//   page = page.split('/')[0] || 'default';
+
+//   try {
+//     const res = await fetch(`./assets/${page}.md`);
+//     if (!res.ok) throw new Error('Not found');
+//     const mdText = await res.text();
+//     contentDiv.innerHTML = marked.parse(mdText);
+//   } catch (err) {
+//     contentDiv.innerHTML = `<h2>Page Not Found</h2>`;
+//   }
+// }
+
+
+
+$(document).ready(function() {
   marked.setOptions({
-    gfm: true,        // GitHub-flavored markdown
-    breaks: true,     // Enter -> <br>
+    gfm: true,
+    breaks: true,
     smartLists: true,
-    smartypants: true 
-  });	
-  let path = window.location.pathname;
-  let page = (path === '/' || path.endsWith('/index.html') || path === '') ? 'default' : path.substring(1);
-  page = page.split('/')[0] || 'default';
+    smartypants: true,
+    headerIds: true,
+    mangle: false,
+    highlight: function(code, lang) {
+      if (window.hljs && hljs.getLanguage(lang)) {
+        return hljs.highlight(lang, code).value;
+      }
+      return code;
+    }
+  });
 
-  try {
-    const res = await fetch(`./assets/${page}.md`);
-    if (!res.ok) throw new Error('Not found');
-    const mdText = await res.text();
-    contentDiv.innerHTML = marked.parse(mdText);
-  } catch (err) {
-    contentDiv.innerHTML = `<h2>Page Not Found</h2>`;
+  function loadMarkdown(section) {
+    const mdPath = `assets/${section}.md`;
+    $.get(mdPath)
+      .done(function(raw) {
+        const html = marked(raw);
+        $('#posts').html(html);
+        // 반응형 이미지 및 테이블 처리
+        $('#posts img').css({ 'max-width': '100%', 'height': 'auto' });
+        $('#posts table').css({ 'max-width': '100%', 'overflow-x': 'auto', 'display': 'block' });
+      })
+      .fail(function() {
+        $('#posts').html('<p>Failed to load Content</p>');
+      });
   }
-}
+
+ 
+  $('#menu li').on('click', function() {
+    const section = $(this).data('section');
+    if (section) loadMarkdown(section);
+  });
+
+ 
+  loadMarkdown('default');
+});

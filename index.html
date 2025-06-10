@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DEVSEC</title>
+  <title>pwnlife</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/default.css">
@@ -12,22 +12,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script defer src="./js/default.js"></script>
 </head>
 <body>
   <div id="root-box">
     <header>
       <div class="header-logo">
-		<canvas id="dretoh"></canvas>
+		    <canvas id="dretoh"></canvas>
       </div>
-      <div class="header-menu">
-        <ul id="header-menu-container">
-          <li><a href="aboutme" data-link>AboutMe</a></li>
-          <li><a href="writeups" data-link>WriteUps</a></li>
-          <li><a href="projects" data-link>Projects</a></li>
-          <li><a href="posts" data-link>Posts</a></li>
+      <nav class="header-menu">
+        <ul id="menu">
+          <li data-section="aboutme">AboutMe</li>
+          <li data-section="writeups">WriteUps</li>
+          <li data-section="projects">Projects</li>
+          <li data-section="posts">Posts</li>
         </ul>
-      </div>
+      </nav>
     </header>
 
     <div id="wrapper">
@@ -37,7 +38,6 @@
     <footer>
         <div class="footer-menu">
           <a href="https://x.com/carter_byt65613" target="_blank">🐦 Twitter</a> |
-          <a href="https://discord.gg/dretoh" target="_blank">💬 Discord</a> |
           <a href="https://linkedin.com/in/raminwo" target="_blank">🔗 LinkedIn</a>
       </div>
     </footer>
