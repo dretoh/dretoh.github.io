@@ -222,56 +222,29 @@ $(document).ready(function() {
 	  $('#posts').html('<p>Loading posts...</p>');
 	  const apiUrl = 'https://api.github.com/repos/dretoh/dretoh.github.io/contents/assets/posts';
 
-	  fetch(apiUrl)
-	    .then(res => {
-	      if (!res.ok) throw new Error('GitHub API error');
-	      return res.json();
-	    })
-	    .then(files => {
-	      const mdFiles = files.filter(f => f.name.endsWith('.md'));
-	      return Promise.all(mdFiles.map(f =>
-	        fetch(f.download_url)
-	          .then(r => r.text())
-	          .then(content => {
-	            const allLines = content.replace(/^\uFEFF/, '').split(/\r?\n/);
-	            const header = allLines.slice(0, 4).map(l => l.trim());
+		fetch(f.download_url)
+		  .then(r => r.text())
+		  .then(content => {
+		    const allLines = content.replace(/^\uFEFF/, '').split(/\r?\n/);
+		    const header = allLines.slice(0, 4).map(l => l.trim());
+		    const dateLine = header.find(l => /^date\s*:/i.test(l)) || '';
+		    const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+		    const date = dateMatch
+		      ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
+		      : '';
 
-	            const dateLine = header.find(l => /^date\s*:/i) || '';
-	            const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
-	            const date = dateMatch
-	              ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
-	              : '';
+		    const descLine = header.find(l => /^description\s*:/i.test(l)) || '';
+		    let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
+		    if (desc.length > 80) desc = desc.slice(0, 80) + '...';
 
-	            const descLine = header.find(l => /^description\s*:/i) || '';
-	            let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
-	            if (desc.length > 80) desc = desc.slice(0, 80) + '...';
+		    console.log('header:', header);
+		    console.log('dateLine:', dateLine);
+		    console.log('descLine:', descLine);
+		    console.log('desc:', desc);
 
-	            const title = f.name.replace(/\.md$/i, '');
-	            console.log(desc);
-	            return { title, date, desc };
-	          })
-	      ));
-	    })
-	    .then(items => {
-	      items.sort((a, b) => new Date(b.date) - new Date(a.date));
-	      let html = '<table class="styled-table">'
-	               +   '<thead><tr><th>Title</th><th>Date</th><th>Description</th></tr></thead>'
-	               +   '<tbody>';
-	      items.forEach(({ title, date, desc }) => {
-	        html += `<tr>
-	                   <td>${title}</td>
-	                   <td>${date}</td>
-	                   <td>${desc}</td>
-	                 </tr>`;
-	      });
-	      html += '</tbody></table>';
-	      $('#posts').html(html);
-
-	    })
-	    .catch(err => {
-	      console.error(err);
-	      $('#posts').html('<p>Failed to load posts.</p>');
-	    });
+		    const title = f.name.replace(/\.md$/i, '');
+		    return { title, date, desc };
+		  })
 	}
 
 
