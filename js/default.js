@@ -199,58 +199,48 @@ $(function() {
 
 */
 
-// ./js/default.js
 $(document).ready(function() {
-  // marked 옵션 설정 (gfm, smartypants 등 고퀄 옵션)
   marked.setOptions({
     gfm: true,
-    breaks: false,
+    breaks: true,
     smartLists: true,
     smartypants: true,
     headerIds: true,
-    mangle: false
+    mangle: true
   });
 
-  // 범용 Markdown 로드 함수
   function loadMarkdown(path) {
     $('#posts').empty().append('<p>Loading...</p>');
     $.get(path, function(content) {
-      $('#posts').html(marked(content));
+      $('#posts').html(marked().parse(content));
     }).fail(function() {
       $('#posts').html('<p>Failed to load content.</p>');
     });
   }
 
-  // Posts 테이블 생성 함수
   function loadPosts() {
     $('#posts').empty().append('<p>Loading posts...</p>');
 
-    // 디렉토리 인덱스를 불러와서 .md 링크만 추출
     $.get('/assets/posts/', function(indexHtml) {
       const $links = $(indexHtml).find('a[href$=".md"]');
       const files = [];
       $links.each(function() {
         let href = $(this).attr('href');
-        // GitHub Pages에서는 'assets/posts/filename.md' 그대로 넘어올 수 있습니다.
         href = href.replace(/^\.\//, '');
         files.push(href);
       });
 
-      // 중복 제거
       const uniqueFiles = Array.from(new Set(files));
 
-      // 각 파일에서 메타데이터 추출
       const requests = uniqueFiles.map(file =>
         $.get('/assets/posts/' + file).then(content => {
           const lines = content.split(/\r?\n/);
-          // date : YYYY/MM/DD
           const dateLine = lines.find(l => /^date\s*:\s*\d{4}\/\d{2}\/\d{2}/i) || '';
           const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
           const date = dateMatch
             ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
             : '0000-00-00';
 
-          // description : ...
           const descLine = lines.find(l => /^description\s*:/i) || '';
           let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
           const maxLen = 80;
@@ -258,7 +248,6 @@ $(document).ready(function() {
             desc = desc.substring(0, maxLen) + '...';
           }
 
-          // 제목 = 파일명에서 .md 제거
           const title = file.replace(/\.md$/i, '');
 
           return { title, date, desc };
@@ -266,13 +255,10 @@ $(document).ready(function() {
       );
 
       $.when(...requests).done(function() {
-        // arguments가 각 요청의 결과 객체 배열
         const items = Array.from(arguments);
 
-        // 최신 날짜순 정렬
         items.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-        // 테이블 HTML 조립
         let table = '<table class="styled-table">';
         table += '<thead><tr><th>Title</th><th>Date</th><th>Description</th></tr></thead><tbody>';
         items.forEach(item => {
@@ -291,10 +277,8 @@ $(document).ready(function() {
     });
   }
 
-  // 초기 로드: default.md
   loadMarkdown('assets/default.md');
 
-  // 메뉴 클릭 핸들러
   $('#menu li').on('click', function() {
     const section = $(this).data('section');
     switch (section) {
