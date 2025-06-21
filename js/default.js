@@ -226,23 +226,28 @@ function loadPosts() {
       const mdFiles = files
         .filter(f => f.name.endsWith('.md'))
         .map(f => ({ name: f.name, url: f.download_url }));
-        
+
       const requests = mdFiles.map(f =>
-        $.get(f.url).then(content => {
-          const lines = content.split(/\r?\n/);
-          const dateLine = lines.find(l => /^date\s*:\s*\d{4}\/\d{2}\/\d{2}/i) || '';
-          const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
-          const date = dateMatch
-            ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
-            : '0000-00-00';
+				$.get(f.url).then(content => {
+				  const clean = content.replace(/^\uFEFF/, '');
+				  const lines = clean.split(/\r?\n/).map(l => l.trim());
 
-          const descLine = lines.find(l => /^description\s*:/i) || '';
-          let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
-          if (desc.length > 80) desc = desc.slice(0, 80) + '...';
+				  console.log(lines);
 
-          const title = f.name.replace(/\.md$/i, '');
-          return { title, date, desc };
-        })
+				  const dateLine = lines.find(l => /^date\s*:\s*\d{4}\/\d{2}\/\d{2}/i) || '';
+				  const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+				  const date = dateMatch
+				    ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
+				    : '0000-00-00';
+
+				  const descLine = lines.find(l => /^description\s*:/i) || '';
+				  let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
+
+				  if (desc.length > 80) desc = desc.slice(0, 80) + '...';
+
+				  const title = f.name.replace(/\.md$/i, '');
+				  return { title, date, desc };
+				})
       );
 
       $.when(...requests).done(function() {
