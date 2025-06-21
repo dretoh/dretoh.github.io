@@ -218,57 +218,56 @@ $(document).ready(function() {
     });
   }
 
-function loadPosts() {
-  $('#posts').empty().append('<p>Loading posts...</p>');
-  // github api
-  $.getJSON('https://api.github.com/repos/dretoh/dretoh.github.io/contents/assets/posts')
-    .done(function(files) {
-      const mdFiles = files
-        .filter(f => f.name.endsWith('.md'))
-        .map(f => ({ name: f.name, url: f.download_url }));
+	function loadPosts() {
+	  $('#posts').html('<p>Loading posts...</p>');
+	  const apiUrl = 'https://api.github.com/repos/dretoh/dretoh.github.io/contents/assets/posts';
 
-      const requests = mdFiles.map(f =>
-				$.get(f.url).then(content => {
-				  const clean = content.replace(/^\uFEFF/, '');
-				  const lines = clean.split(/\r?\n/).map(l => l.trim());
+	  fetch(apiUrl)
+	    .then(res => {
+	      if (!res.ok) throw new Error('GitHub API error');
+	      return res.json();
+	    })
+	    .then(files => {
+	      const mdFiles = files.filter(f => f.name.endsWith('.md'));
+	      return Promise.all(mdFiles.map(f =>
+	        fetch(f.download_url)
+	          .then(r => r.text())
+	          .then(content => {
+	            const lines = content.replace(/^\uFEFF/, '').split(/\r?\n/);
 
-				  console.log(lines);
+	            const dateLine = lines.find(l => /^date\s*:/i) || '';
+	            const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+	            const date = dateMatch
+	              ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
+	              : '';
+	            let descLine = lines.find(l => /^description\s*:/i) || '';
+	            let desc = descLine.replace(/^description\s*:/i, '').trim();
+	            if (desc.length > 80) desc = desc.slice(0, 80) + '...';
 
-				  const dateLine = lines.find(l => /^date\s*:\s*\d{4}\/\d{2}\/\d{2}/i) || '';
-				  const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
-				  const date = dateMatch
-				    ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
-				    : '0000-00-00';
-
-				  const descLine = lines.find(l => /^description\s*:/i) || '';
-				  let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
-
-				  if (desc.length > 80) desc = desc.slice(0, 80) + '...';
-
-				  const title = f.name.replace(/\.md$/i, '');
-				  return { title, date, desc };
-				})
-      );
-
-      $.when(...requests).done(function() {
-        const items = Array.from(arguments);
-        items.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        let table = '<table class="styled-table">';
-        table += '<thead><tr><th>Title</th><th>Date</th><th>Description</th></tr></thead><tbody>';
-        items.forEach(item => {
-          table += `<tr>
-                      <td>${item.title}</td>
-                      <td>${item.date}</td>
-                      <td>${item.desc}</td>
-                    </tr>`;
-        });
-        table += '</tbody></table>';
-        $('#posts').html(table);
+	            const title = f.name.replace(/\.md$/i, '');
+	            return { title, date, desc };
+	          })
+	      ));
+	    })
+    .then(items => {
+      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+      let html = '<table class="styled-table">'
+               +   '<thead><tr><th>Title</th><th>Date</th><th>Description</th></tr></thead>'
+               +   '<tbody>';
+      items.forEach(item => {
+        html += `<tr>
+                   <td>${item.title}</td>
+                   <td>${item.date}</td>
+                   <td>${item.desc}</td>
+                 </tr>`;
       });
+      html += '</tbody></table>';
+
+      $('#posts').html(html);
     })
-    .fail(function() {
-      $('#posts').html('<p>Failed to load posts via GitHub API.</p>');
+    .catch(err => {
+      console.error(err);
+      $('#posts').html('<p>Failed to load posts.</p>');
     });
 	}
 
