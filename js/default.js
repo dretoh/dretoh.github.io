@@ -218,22 +218,17 @@ $(document).ready(function() {
     });
   }
 
-  function loadPosts() {
-    $('#posts').empty().append('<p>Loading posts...</p>');
-
-    $.get('/assets/posts/', function(indexHtml) {
-      const $links = $(indexHtml).find('a[href$=".md"]');
-      const files = [];
-      $links.each(function() {
-        let href = $(this).attr('href');
-        href = href.replace(/^\.\//, '');
-        files.push(href);
-      });
-
-      const uniqueFiles = Array.from(new Set(files));
-
-      const requests = uniqueFiles.map(file =>
-        $.get('/assets/posts/' + file).then(content => {
+function loadPosts() {
+  $('#posts').empty().append('<p>Loading posts...</p>');
+  // github api
+  $.getJSON('https://api.github.com/repos/dretoh/dretoh.github.io/contents/assets/posts')
+    .done(function(files) {
+      const mdFiles = files
+        .filter(f => f.name.endsWith('.md'))
+        .map(f => ({ name: f.name, url: f.download_url }));
+        
+      const requests = mdFiles.map(f =>
+        $.get(f.url).then(content => {
           const lines = content.split(/\r?\n/);
           const dateLine = lines.find(l => /^date\s*:\s*\d{4}\/\d{2}\/\d{2}/i) || '';
           const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
@@ -243,20 +238,15 @@ $(document).ready(function() {
 
           const descLine = lines.find(l => /^description\s*:/i) || '';
           let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
-          const maxLen = 80;
-          if (desc.length > maxLen) {
-            desc = desc.substring(0, maxLen) + '...';
-          }
+          if (desc.length > 80) desc = desc.slice(0, 80) + '...';
 
-          const title = file.replace(/\.md$/i, '');
-
+          const title = f.name.replace(/\.md$/i, '');
           return { title, date, desc };
         })
       );
 
       $.when(...requests).done(function() {
         const items = Array.from(arguments);
-
         items.sort((a, b) => new Date(b.date) - new Date(a.date));
 
         let table = '<table class="styled-table">';
@@ -269,13 +259,13 @@ $(document).ready(function() {
                     </tr>`;
         });
         table += '</tbody></table>';
-
         $('#posts').html(table);
       });
-    }).fail(function() {
-      $('#posts').html('<p>Failed to load posts directory.</p>');
+    })
+    .fail(function() {
+      $('#posts').html('<p>Failed to load posts via GitHub API.</p>');
     });
-  }
+	}
 
   loadMarkdown('assets/default.md');
 
