@@ -37,6 +37,7 @@ footer {
 }
 
 #dretoh {
+  cursor: pointer; 
   width: 100%;       
   aspect-ratio: 6 / 1;
   max-height: 200px;      
