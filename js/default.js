@@ -1,107 +1,119 @@
+window.addEventListener('DOMContentLoaded', () => 
+{
 
+  const canvas = document.getElementById('dretoh');
+  const ctx = canvas.getContext('2d');
+  const txt = "PWNLIFE";
+  const letterSpacing = 2;
+  const dashLen = 170;
+  const speed = 12;
+  const underlineDuration = 600;
 
-window.addEventListener('DOMContentLoaded', function() {
-	let canvas = $('#dretoh');
+  let textRAF, underlineRAF;
 
-	canvas.on('click', () => {
-  	window.location.href = '/index.html';
-	});	
-	canvas = canvas[0];
-	const ctx = canvas.getContext('2d');  
+  function resetCanvas() 
+  {
+    const ratio = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
 
-	const ratio = window.devicePixelRatio || 1;
-	const cssWidth = canvas.clientWidth;
-	const cssHeight = canvas.clientHeight;
-	canvas.width = cssWidth * ratio;
-	canvas.height = cssHeight * ratio;
-	canvas.style.width = cssWidth + 'px';
-	canvas.style.height = cssHeight + 'px';
-	ctx.scale(ratio, ratio);
-  
-	const txt = "DRETOH";
-	const letterSpacing = 2; // 글자 사이 여백
-	let i = 0; // 반복자
-	const yBase = cssHeight / 2 + 16;
-	const dashLen = 170;               
-	let dashOffset = dashLen;
-	const speed = 12;
-	ctx.font = "bold 25px Montserrat";
-	ctx.lineWidth = 1;
-	ctx.fillStyle = "#333";
-	ctx.strokeStyle = "#333";
-  
-	let totalTextWidth = 0;
-	for (let ch of txt) {
-		const w = ctx.measureText(ch).width;
-		totalTextWidth += w;
-	}
-	totalTextWidth += letterSpacing * (txt.length + 3); //scaling
+    canvas.width  = w * ratio;
+    canvas.height = h * ratio;
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.translate(0.5, 0.5);
+    ctx.scale(ratio, ratio);
+  }
 
-    // 캔버스 기준 중앙 정렬
-    let x = (cssWidth - totalTextWidth) / 2;
+  function animateText() 
+  {
+    if (textRAF) cancelAnimationFrame(textRAF);
+    if (underlineRAF) cancelAnimationFrame(underlineRAF);
 
-    // 밑줄 animation
-    let underlineStartTime = null;
-    const underlineDuration = 600; 
-    const underlineY = yBase + 10;
-    const halfTextWidth = totalTextWidth / 2;
-    const centerX = cssWidth / 2;
+    ctx.font = "bold 25px Montserrat";
+    ctx.lineWidth = 1;
+    ctx.fillStyle = ctx.strokeStyle = "#333";
 
-    
-    function draw() {
-        ctx.clearRect(x, 0, dashLen, cssHeight);
-        ctx.setLineDash([dashLen - dashOffset, dashOffset - speed]);
-        dashOffset -= speed;
-        ctx.strokeText(txt[i], x, yBase);
-        if (dashOffset > 0) {
-			requestAnimationFrame(draw);
-        } else {
-			ctx.fillText(txt[i], x, yBase);
-			dashOffset = dashLen;
-			const charWidth = ctx.measureText(txt[i]).width;
-			x += charWidth + letterSpacing;
-			i++;
-			if (i < txt.length) {
-				requestAnimationFrame(draw);
-			} else {
-				ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-				requestAnimationFrame(drawUnderline);
-			}
+    let totalW = txt.split('').reduce((sum, ch) => sum + ctx.measureText(ch).width, 0) + letterSpacing * (txt.length + 1);
+    const startX = (canvas.clientWidth - totalW) / 2;
+    const yBase  = canvas.clientHeight / 2 + 16;
+    let x = startX;
+    let i = 0;
+    let dashOff = dashLen;
+
+    function drawChar() 
+    {
+      ctx.clearRect(x, 0, dashLen, canvas.clientHeight);
+      ctx.setLineDash([dashLen - dashOff, dashOff - speed]);
+      dashOff -= speed;
+      ctx.strokeText(txt[i], x, yBase);
+
+      if (dashOff > 0) 
+      {
+        textRAF = requestAnimationFrame(drawChar);
+      } else 
+      {
+        ctx.fillText(txt[i], x, yBase);
+        dashOff = dashLen;
+        x += ctx.measureText(txt[i]).width + letterSpacing;
+        i++;
+        if (i < txt.length) {
+          textRAF = requestAnimationFrame(drawChar);
+        } else 
+        {
+          underlineRAF = requestAnimationFrame(drawUnderline);
         }
-    }
-	draw();
-
-    function drawUnderline(timestamp) {
-		if (!underlineStartTime) underlineStartTime = timestamp;
-			const elapsed = timestamp - underlineStartTime;
-			const progress = Math.min(elapsed / underlineDuration, 1); // 0~1
-
-			const currentHalf = halfTextWidth * progress;
-
-			ctx.save();
-			ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-
-			const clearHeight = 4; 
-			ctx.clearRect(0, underlineY - clearHeight, cssWidth, clearHeight + 2);
-
-			ctx.beginPath();
-			ctx.lineWidth = 2;
-			ctx.strokeStyle = "#333";
-
-			ctx.moveTo(centerX, underlineY);
-			ctx.lineTo(centerX - currentHalf, underlineY);
-			ctx.moveTo(centerX, underlineY);
-			ctx.lineTo(centerX + currentHalf, underlineY);
-
-			ctx.stroke();
-			ctx.restore();
-
-			if (progress < 1) {
-				requestAnimationFrame(drawUnderline);
-			}
+      }
     }
 
+    let underlineStart = null;
+    const halfW = totalW / 2;
+    const centerX = canvas.clientWidth / 2;
+    const lineY = yBase + 10;
+
+    function drawUnderline(ts) 
+    {
+      if (!underlineStart) underlineStart = ts;
+      const p = Math.min((ts - underlineStart) / underlineDuration, 1);
+      const cur = halfW * p;
+
+      ctx.clearRect(0, lineY - 4, canvas.clientWidth, 6);
+      ctx.beginPath();
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = "#333";
+      ctx.moveTo(centerX, lineY);
+      ctx.lineTo(centerX - cur, lineY);
+      ctx.moveTo(centerX, lineY);
+      ctx.lineTo(centerX + cur - 3, lineY);
+      ctx.stroke();
+
+      if (p < 1) 
+      {
+        underlineRAF = requestAnimationFrame(drawUnderline);
+      }
+    }
+
+    drawChar();
+  }
+
+  function renderCanvas() 
+  {
+    resetCanvas();
+    animateText();
+  }
+
+  canvas.addEventListener('click', () => 
+  {
+    window.location.href = '/index.html';
+  });
+
+  document.fonts.ready.then(renderCanvas);
+
+  window.addEventListener('resize', renderCanvas);
 });
+
+
+
+
 
 
 
@@ -145,7 +157,7 @@ window.addEventListener('DOMContentLoaded', function() {
 // }
 
 
-
+/*
 $(function() {
   marked.setOptions({
     gfm: true,
@@ -182,4 +194,124 @@ $(function() {
   });
 
   loadMarkdown('default');
+});
+
+
+*/
+
+// ./js/default.js
+$(document).ready(function() {
+  // marked 옵션 설정 (gfm, smartypants 등 고퀄 옵션)
+  marked.setOptions({
+    gfm: true,
+    breaks: false,
+    smartLists: true,
+    smartypants: true,
+    headerIds: true,
+    mangle: false
+  });
+
+  // 범용 Markdown 로드 함수
+  function loadMarkdown(path) {
+    $('#posts').empty().append('<p>Loading...</p>');
+    $.get(path, function(content) {
+      $('#posts').html(marked(content));
+    }).fail(function() {
+      $('#posts').html('<p>Failed to load content.</p>');
+    });
+  }
+
+  // Posts 테이블 생성 함수
+  function loadPosts() {
+    $('#posts').empty().append('<p>Loading posts...</p>');
+
+    // 디렉토리 인덱스를 불러와서 .md 링크만 추출
+    $.get('/assets/posts/', function(indexHtml) {
+      const $links = $(indexHtml).find('a[href$=".md"]');
+      const files = [];
+      $links.each(function() {
+        let href = $(this).attr('href');
+        // GitHub Pages에서는 'assets/posts/filename.md' 그대로 넘어올 수 있습니다.
+        href = href.replace(/^\.\//, '');
+        files.push(href);
+      });
+
+      // 중복 제거
+      const uniqueFiles = Array.from(new Set(files));
+
+      // 각 파일에서 메타데이터 추출
+      const requests = uniqueFiles.map(file =>
+        $.get('/assets/posts/' + file).then(content => {
+          const lines = content.split(/\r?\n/);
+          // date : YYYY/MM/DD
+          const dateLine = lines.find(l => /^date\s*:\s*\d{4}\/\d{2}\/\d{2}/i) || '';
+          const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+          const date = dateMatch
+            ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
+            : '0000-00-00';
+
+          // description : ...
+          const descLine = lines.find(l => /^description\s*:/i) || '';
+          let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
+          const maxLen = 80;
+          if (desc.length > maxLen) {
+            desc = desc.substring(0, maxLen) + '...';
+          }
+
+          // 제목 = 파일명에서 .md 제거
+          const title = file.replace(/\.md$/i, '');
+
+          return { title, date, desc };
+        })
+      );
+
+      $.when(...requests).done(function() {
+        // arguments가 각 요청의 결과 객체 배열
+        const items = Array.from(arguments);
+
+        // 최신 날짜순 정렬
+        items.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // 테이블 HTML 조립
+        let table = '<table class="styled-table">';
+        table += '<thead><tr><th>Title</th><th>Date</th><th>Description</th></tr></thead><tbody>';
+        items.forEach(item => {
+          table += `<tr>
+                      <td>${item.title}</td>
+                      <td>${item.date}</td>
+                      <td>${item.desc}</td>
+                    </tr>`;
+        });
+        table += '</tbody></table>';
+
+        $('#posts').html(table);
+      });
+    }).fail(function() {
+      $('#posts').html('<p>Failed to load posts directory.</p>');
+    });
+  }
+
+  // 초기 로드: default.md
+  loadMarkdown('assets/default.md');
+
+  // 메뉴 클릭 핸들러
+  $('#menu li').on('click', function() {
+    const section = $(this).data('section');
+    switch (section) {
+      case 'aboutme':
+        loadMarkdown('assets/aboutme.md');
+        break;
+      case 'history':
+        loadMarkdown('assets/history.md');
+        break;
+      case 'projects':
+        loadMarkdown('assets/projects.md');
+        break;
+      case 'posts':
+        loadPosts();
+        break;
+      default:
+        loadMarkdown('assets/default.md');
+    }
+  });
 });
