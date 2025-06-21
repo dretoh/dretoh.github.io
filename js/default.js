@@ -233,43 +233,52 @@ $(document).ready(function() {
 	        fetch(f.download_url)
 	          .then(r => r.text())
 	          .then(content => {
-	            const lines = content.replace(/^\uFEFF/, '').split(/\r?\n/);
+	            // --- 여기부터 수정된 부분 ---
+	            // 1) BOM 제거 + 줄 분리
+	            const allLines = content.replace(/^\uFEFF/, '').split(/\r?\n/);
+	            // 2) 첫 4줄만
+	            const header = allLines.slice(0, 4).map(l => l.trim());
 
-	            const dateLine = lines.find(l => /^date\s*:/i) || '';
+	            // 3) date 파싱
+	            const dateLine = header.find(l => /^date\s*:/i) || '';
 	            const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
 	            const date = dateMatch
 	              ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
 	              : '';
-	            let descLine = lines.find(l => /^description\s*:/i) || '';
-	            let desc = descLine.replace(/^description\s*:/i, '').trim();
+
+	            // 4) description 파싱
+	            const descLine = header.find(l => /^description\s*:/i) || '';
+	            let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
 	            if (desc.length > 80) desc = desc.slice(0, 80) + '...';
 
+	            // 5) 제목 (파일명에서 .md 제거)
 	            const title = f.name.replace(/\.md$/i, '');
 	            return { title, date, desc };
+	            // --- 수정 끝 ---
 	          })
 	      ));
 	    })
-    .then(items => {
-      items.sort((a, b) => new Date(b.date) - new Date(a.date));
-      let html = '<table class="styled-table">'
-               +   '<thead><tr><th>Title</th><th>Date</th><th>Description</th></tr></thead>'
-               +   '<tbody>';
-      items.forEach(item => {
-        html += `<tr>
-                   <td>${item.title}</td>
-                   <td>${item.date}</td>
-                   <td>${item.desc}</td>
-                 </tr>`;
-      });
-      html += '</tbody></table>';
-
-      $('#posts').html(html);
-    })
-    .catch(err => {
-      console.error(err);
-      $('#posts').html('<p>Failed to load posts.</p>');
-    });
+	    .then(items => {
+	      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+	      let html = '<table class="styled-table">'
+	               +   '<thead><tr><th>Title</th><th>Date</th><th>Description</th></tr></thead>'
+	               +   '<tbody>';
+	      items.forEach(({ title, date, desc }) => {
+	        html += `<tr>
+	                   <td>${title}</td>
+	                   <td>${date}</td>
+	                   <td>${desc}</td>
+	                 </tr>`;
+	      });
+	      html += '</tbody></table>';
+	      $('#posts').html(html);
+	    })
+	    .catch(err => {
+	      console.error(err);
+	      $('#posts').html('<p>Failed to load posts.</p>');
+	    });
 	}
+
 
   loadMarkdown('assets/default.md');
 
