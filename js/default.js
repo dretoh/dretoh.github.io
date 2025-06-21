@@ -247,6 +247,7 @@ $(document).ready(function() {
 	            if (desc.length > 80) desc = desc.slice(0, 80) + '...';
 
 	            const title = f.name.replace(/\.md$/i, '');
+	            console.log(desc);
 	            return { title, date, desc };
 	          })
 	      ));
@@ -265,7 +266,7 @@ $(document).ready(function() {
 	      });
 	      html += '</tbody></table>';
 	      $('#posts').html(html);
-	      alert(desc);
+
 	    })
 	    .catch(err => {
 	      console.error(err);
