@@ -212,7 +212,7 @@ $(document).ready(function() {
   function loadMarkdown(path) {
     $('#posts').empty().append('<p>Loading...</p>');
     $.get(path, function(content) {
-      $('#posts').html(marked().parse(content));
+      $('#posts').html(marked.parse(content));
     }).fail(function() {
       $('#posts').html('<p>Failed to load content.</p>');
     });
