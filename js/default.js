@@ -255,4 +255,24 @@ $(document).ready(function() {
         loadMarkdown('assets/default.md');
     }
   });
+
+
+
+
+  $('.hover_up').hover(
+    function() { 
+      $(this).css({
+        'border': '2px solid green',
+        'font-size': '105%'
+      });
+    }, 
+    function() {
+      $(this).css({
+        'border': 'none',
+        'font-size': ''
+      });
+    }
+  );
+
+
 });

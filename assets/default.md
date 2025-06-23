@@ -24,13 +24,6 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 <br>
 
 <table class="styled-table" align="center">
-  <thead>
-    <tr>
-      <th>Major</th>
-      <th>Languages</th>
-      <th>Hobbies</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
       <td>
@@ -58,9 +51,9 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 ### Main Interests
 
-> - System Security & Architecture  
-> - Bluetooth 5.0+ Protocol & Security  
-> - eBPF for Networking & Security  
+<div class="hover_up">System Security & Architecture</div>
+<div class="hover_up">Bluetooth 5.0+ Protocol & Security</div>
+<div class="hover_up">eBPF for Networking & Security</div>
 
 <br>
 
