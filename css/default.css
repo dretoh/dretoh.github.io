@@ -207,3 +207,16 @@ footer {
 .width-expand {
   width: 180%;
 }
+
+.hover_up {
+  border: none;
+  font-weight: normal;
+  font-size: 100%;
+}
+
+.hover_up:hover {
+  cursor: pointer;
+  border: 2px solid green;
+  font-weight: bold;
+  font-size: 105%
+}

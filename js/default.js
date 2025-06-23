@@ -113,25 +113,6 @@ window.addEventListener('DOMContentLoaded', () =>
 });
 
 
-$(document).ready(function(){
-  $('.hover_up').on("mouseenter", function() { 
-      $(this).css({
-        'cursor': 'pointer',
-        'border': '2px solid green',
-        'font-weight': 'bold',
-        'font-size': '105%'
-      });
-    }).on("mouseleave",function() {
-      $(this).css({
-        'border': 'none',
-        'font-weight': 'normal',
-        'font-size': ''
-      });
-    });
-});
-
-
-
 
 
 $(document).ready(function() {
