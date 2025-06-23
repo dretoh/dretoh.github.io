@@ -1,4 +1,4 @@
-/* Base reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -78,16 +78,6 @@ footer {
   text-decoration: none;
   margin: 0 5px;
 }
-
-#posts {
-  padding: 10px;
-}
-
-
-
-
-
-
 
 
 
@@ -169,10 +159,11 @@ footer {
 }
 
 
-.post-content {
+#posts {
   white-space: pre-wrap;
   word-break: keep-all;
   line-height: 1.5;
+  padding: 10px;
 }
 .post-content p {
   margin: 0 0 1em;
