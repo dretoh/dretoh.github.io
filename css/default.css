@@ -75,8 +75,20 @@ footer {
   background-image: url('../img/backG.png');
   background-size: cover;
   background-position: center;
+
   height: 100%;
   width: 100%;
+}
+
+.header-logo::after {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: brightness(50%);
+  z-index: -1;
 }
 
 #wrapper {
