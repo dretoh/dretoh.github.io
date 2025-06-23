@@ -272,6 +272,7 @@ function createTimeline() {
       word-wrap: break-word;
       flex: 0 0 auto;
 
+      white-space: pre-line;
       font-family: 'Montserrat', sans-serif;
       font-size: 14px;
       line-height: 1.6;
