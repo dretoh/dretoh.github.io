@@ -179,7 +179,7 @@ $(document).ready(function() {
         html += '<tbody>';
         items.forEach(item => {
           html += `
-            <tr class="post-row" data-url="${item.url}">
+            <tr class="hover_up" data-url="${item.url}">
               <td>${item.title}</td>
               <td>${item.date}</td>
               <td>${item.desc}</td>
@@ -187,10 +187,6 @@ $(document).ready(function() {
         });
         html += '</tbody></table>';
         $('#posts').html(html);
-        $('.post-row').hover(
-          function() { $(this).css('outline', '2px solid green'); },
-          function() { $(this).css('outline', ''); }
-        );
 
         $('.post-row').on('click', function() {
           const $this = $(this);
