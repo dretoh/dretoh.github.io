@@ -51,7 +51,9 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
   </tbody>
 </table>
 <br>
+
 ---
+
 <br>
 
 ### Main Interests
