@@ -193,7 +193,7 @@ $(document).ready(function() {
         html += '</tbody></table>';
         $('#posts').html(html);
         $('.post-row').hover(
-          function() { $(this).css('outline', '1px solid green'); },
+          function() { $(this).css('outline', '2px solid green'); },
           function() { $(this).css('outline', ''); }
         );
 
