@@ -84,7 +84,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
     <tr><td>WhiteHatSchool</td><td>2nd Cohort/Security</td><td>2024-2024</td></tr>
     <tr><td>KoreaCyberSecurity</td><td>1st Cohort/National Sec</td><td>2024-2024</td></tr>
     <tr><td>PhysicalLAB</td><td>playground/Pwn</td><td>2024~.</td></tr>
-    <tr><td>BestOftheBest</td><td>14th Cohort/Vuln Analysis</td><td>2025~.</td></tr>
+    <tr><td>-</td><td>-</td><td>2025~.</td></tr>
   </tbody>
 </table>
 <br>
