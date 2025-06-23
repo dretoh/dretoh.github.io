@@ -251,7 +251,9 @@ $(document).ready(function() {
     }
   });
 });
+
 function createTimeline() {
+
   const styleContent = `
     #timeline {
       width: 90%;
@@ -259,20 +261,10 @@ function createTimeline() {
     }
     .timeline-row {
       display: flex;
-      align-items: center;
+      align-items: flex-start; 
       justify-content: space-between;
       gap: 20px;
       margin-bottom: 40px;
-
-      flex-direction: row;
-    }
-
-    .timeline-row.stacked {
-      flex-direction: column;
-    }
-    .timeline-row.stacked .arrow-box {
-
-      margin: 20px auto;
     }
     .content-box {
       flex: 1;
@@ -281,14 +273,15 @@ function createTimeline() {
       background-color: #dff0d8;
       border-radius: 8px;
       min-height: 60px;
-
       word-wrap: break-word;
+      visibility: visible;
     }
     .content-box.right {
       background-color: #f2f2f2;
     }
     .arrow-box {
       flex: 0 0 80px;
+      width: 80px;
       height: 80px;
       background-color: #ccc;
       clip-path: polygon(
@@ -299,25 +292,22 @@ function createTimeline() {
         50%  100%,
         0%   75%
       );
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
   `;
-
   if (!$('#timeline-styles').length) {
     $('<style>', { id: 'timeline-styles' })
       .text(styleContent)
       .appendTo('head');
   }
 
-  const timeline = $('#timeline');
+  var timeline = $('#timeline');
   if (!timeline.length) {
     console.error('Error: #timeline element not found.');
     return;
   }
 
-  const events = [
+
+  var events = [
     'Started studying Computer Engineering.',
     'Developed a plugin for Minecraft. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
     'Contributed to an open-source security project.',
@@ -325,29 +315,29 @@ function createTimeline() {
   ];
 
 
-  $.each(events, function(idx, eventText) {
-    const isLeft = idx % 2 === 0;
-    const row = $('<div>').addClass('timeline-row');
-    const left = $('<div>')
+  $.each(events, function(idx, text) {
+    var isLeft = (idx % 2 === 0);
+    var row = $('<div>').addClass('timeline-row');
+
+
+    var left = $('<div>')
       .addClass('content-box left')
-      .text(eventText)
+      .text(isLeft ? text : '')
       .css('visibility', isLeft ? 'visible' : 'hidden');
-    const arrow = $('<div>').addClass('arrow-box');
-    const right = $('<div>')
+
+
+    var arrow = $('<div>').addClass('arrow-box');
+
+
+    var right = $('<div>')
       .addClass('content-box right')
-      .text(eventText)
+      .text(!isLeft ? text : '')
       .css('visibility', !isLeft ? 'visible' : 'hidden');
 
-    row.append(left, arrow, right).appendTo(timeline);
 
-    $.each([left, right], function(_, box) {
-      const el = box.get(0);
-      if (el.scrollWidth > box.innerWidth()) {
-        row.addClass('stacked');
-        row.children().css('width', '100%');
-        return false;
-      }
-    });
+    row.append(left, arrow, right);
+    timeline.append(row);
   });
 }
+
 
