@@ -313,6 +313,7 @@ $(document).ready(function() {
     events.forEach(function(event, index) {
       var position = index % 2 === 0 ? 'left' : 'right';
       var arrowBox = createArrowBox(event, position);
+      console.log(arrowBox);
       timeline.append(arrowBox);
     });
   });
