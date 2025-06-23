@@ -261,7 +261,7 @@ function createTimeline() {
     }
     .timeline-row {
       display: flex;
-      align-items: flex-start; 
+      align-items: center; 
       justify-content: space-between;
       gap: 20px;
       margin-bottom: 40px;
