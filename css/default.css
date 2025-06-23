@@ -118,6 +118,10 @@ footer {
   background-color: #fff;
 }
 
+.attrbl {
+  display:block;
+}
+
 #posts {
   overflow: hidden;
   word-wrap: break-word;
