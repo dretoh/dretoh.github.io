@@ -143,18 +143,19 @@ $(document).ready(function() {
     fetch(apiUrl)
       .then(res => {
         if (!res.ok) throw new Error('GitHub API error: ' + res.status);
-          return res.json();
+        return res.json();
       })
       .then(files => {
         const mdFiles = files.filter(f => f.name.endsWith('.md'));
-
         return Promise.all(mdFiles.map(f =>
+          // 여기서 f.download_url 을 반드시 사용
           fetch(f.download_url)
             .then(r => {
               if (!r.ok) throw new Error(`Failed to fetch ${f.name}`);
               return r.text();
             })
             .then(content => {
+              // **초기 테이블용**: 앞 4줄에서만 헤더 메타데이터 추출
               const allLines = content.replace(/^\uFEFF/, '').split(/\r?\n/);
               const header = allLines.slice(0, 4).map(l => l.trim());
 
@@ -166,18 +167,18 @@ $(document).ready(function() {
               let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
               if (desc.length > 80) desc = desc.slice(0, 80) + '...';
 
-              const title = f.name.replace(/\.md$/i, '');
               return {
-                title,
+                title:   f.name.replace(/\.md$/i, ''),
                 date,
                 desc,
-                url: f.download_url
+                url:     f.download_url,  
               };
             })
-       ));
+        ));
       })
       .then(items => {
         items.sort((a, b) => new Date(b.date) - new Date(a.date));
+
         let html = '<table class="styled-table">';
         html += '<thead><tr><th>Title</th><th>Date</th><th>Description</th></tr></thead>';
         html += '<tbody>';
@@ -187,12 +188,10 @@ $(document).ready(function() {
               <td>${item.title}</td>
               <td>${item.date}</td>
               <td>${item.desc}</td>
-            </tr>
-          `;
+            </tr>`;
         });
         html += '</tbody></table>';
         $('#posts').html(html);
-
         $('.post-row').hover(
           function() { $(this).css('outline', '1px solid green'); },
           function() { $(this).css('outline', ''); }
@@ -200,31 +199,30 @@ $(document).ready(function() {
 
         $('.post-row').on('click', function() {
           const $this = $(this);
-        
           if ($this.next().hasClass('post-details')) {
             $this.next().remove();
             return;
           }
-        
           const url = $this.data('url');
-          const colspan = $this.find('td').length;
-        
+          const colspan = $this.children('td').length;
           const $detailsRow = $(`
             <tr class="post-details">
               <td colspan="${colspan}">
-                <div class="post-content">Loading...</div>
+                <div class="post-content">Loading full markdown…</div>
               </td>
             </tr>
           `);
           $this.after($detailsRow);
 
-          
           fetch(url)
-            .then(r => r.text())
+            .then(r => {
+              if (!r.ok) throw new Error('Failed to fetch full markdown');
+              return r.text();
+            })
             .then(md => {
               $detailsRow.find('.post-content').html(marked.parse(md));
             })
-           .catch(() => {
+            .catch(() => {
               $detailsRow.find('.post-content').text('Failed to load content.');
             });
         });
@@ -233,7 +231,7 @@ $(document).ready(function() {
         console.error(err);
         $('#posts').html('<p>Failed to load posts.</p>');
       });
-    }
+  }
 
   loadMarkdown('assets/default.md');
 

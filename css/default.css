@@ -97,6 +97,7 @@ footer {
 .styled-table {
   width: 100%;
   border-collapse: collapse;
+  cursor: pointer;
 }
 
 .styled-table th, .styled-table td {
@@ -161,3 +162,4 @@ footer {
 .styled-table tbody tr.post-row:hover td {
   border: 1px solid green;
 }
+
