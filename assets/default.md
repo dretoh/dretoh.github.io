@@ -5,32 +5,59 @@
 Hi! I'm a student majoring in **Computer Engineering**, focusing on **development**, **network**, and **system security**.  
 While I’m working towards becoming a specialist in these areas, I know it's going to take time... but HEY, I'm not in a rush—**I've got all the time and opportunities ahead of me** to get there!
 
-Meanwhile, I’ve been playing **Minecraft** since 2015, and that’s when I first got into coding. Building servers with **Java Plugins** and **Skript** made me realize my interest in development.  
+Meanwhile, I’ve been playing **Minecraft** since 2015, and that’s when I first got into coding. 
+Building servers with **Java Plugins** and **Skript** made me realize my interest in development.  
 I’m confident in my ability to build **Korean-style Architecture** in Minecraft, and this skill has been applied to all the servers I’ve created.
 
 ---
 
-### 🚀 Major, Languages, Hobbies
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Major-Computer%20Engineering-blue?style=for-the-badge" alt="Major">
-  <img src="https://img.shields.io/badge/Languages-C%2FC%2B%2B|Python|Rust|JS-lightgrey?style=for-the-badge" alt="Languages">
-  <img src="https://img.shields.io/badge/Hobbies-Minecraft|TableTennis|IceHockey-green?style=for-the-badge" alt="Hobbies">
-</p>
+### Major, Languages, Hobbies
 
 ---
 
-### 🔍 Main Interests
+### Major, Languages, Hobbies
 
+<table class="styled-table" align="center">
+  <thead>
+    <tr>
+      <th>Major</th>
+      <th>Languages</th>
+      <th>Hobbies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img src="https://img.shields.io/badge/Major-Computer%20Engineering-blue?style=for-the-badge" alt="Major">
+      </td>
+  	  <td>
+        <img src="https://img.shields.io/badge/Language-C%2FC%2B%2B-brightgreen?style=for-the-badge" alt="C/C++">
+        <img src="https://img.shields.io/badge/Language-Python-yellow?style=for-the-badge" alt="Python">
+        <img src="https://img.shields.io/badge/Language-Rust-orange?style=for-the-badge" alt="Rust">
+        <img src="https://img.shields.io/badge/Language-JavaScript-lightgrey?style=for-the-badge" alt="JavaScript">
+      </td>
+      <td>
+        <img src="https://img.shields.io/badge/Hobby-Minecraft-lightblue?style=for-the-badge" alt="Minecraft">
+        <img src="https://img.shields.io/badge/Hobby-Table%20Tennis-yellowgreen?style=for-the-badge" alt="Table Tennis">
+        <img src="https://img.shields.io/badge/Hobby-Ice%20Hockey-blue?style=for-the-badge" alt="Ice Hockey">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+---
+
+### Main Interests
 > - System Security & Architecture  
 > - Bluetooth 5.0+ Protocol & Security  
 > - eBPF for Networking & Security  
 
 ---
 
-## 🌐 Frequently Visited
+## Frequently Visited
 
-<details><summary>Click?</summary>
+<details><summary>Click</summary>
 
 - [DreamHack](https://www.dreamhack.com/) _(ID: `pwnlife`)_  
 - [OverTheWire](https://overthewire.org/)  
@@ -40,7 +67,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 ---
 
-## 🏫 Organization
+## Organization
 
 <table class="styled-table">
   <thead>
@@ -56,7 +83,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 ---
 
-### 🎵 Favorite Tracks
+### Favorite Tracks
 
 <table class="styled-table">
   <tr>

@@ -174,11 +174,32 @@ footer {
   max-width: 100%;
   margin: 0 auto;
 
-  white-space: pre-wrap;
+  white-space: normal;
   line-height: 1.5;
   padding: 10px;
 }
+
+/*
 .post-content p {
   margin: 0 0 1em;
 }
+*/
 
+.post-content > p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.post-content ul, .post-content ol {
+  padding-left: 20px;
+  margin-bottom: 1em;
+}
+
+.post-content li {
+  margin-bottom: 0.5em;
+}
+
+.post-content a {
+  color: #0066cc;
+  text-decoration: underline;
+}
