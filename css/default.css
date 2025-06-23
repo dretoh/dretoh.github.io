@@ -168,3 +168,12 @@ footer {
   background-color: #fff;
 }
 
+
+.post-content {
+  white-space: pre-wrap;
+  word-break: keep-all;
+  line-height: 1.5;
+}
+.post-content p {
+  margin: 0 0 1em;
+}

@@ -221,7 +221,7 @@ $(document).ready(function() {
               const lines = md.replace(/^\uFEFF/, '').split(/\r?\n/);
               const body = lines.slice(2).join('\n');
 
-              $detailsRow.find('.post-content').html(marked.parse(md));
+              $detailsRow.find('.post-content').html(marked.parse(body));
             })
             .catch(() => {
               $detailsRow.find('.post-content').text('Failed to load content.');
