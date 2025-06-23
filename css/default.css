@@ -8,6 +8,8 @@
   color: #000;
 }
 
+
+
 body {
   background-color: #EFEFEE;
 }
@@ -30,6 +32,13 @@ header, footer {
 }
 
 header {
+  position: relative;
+  background-image: url('img/backG.png');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+ 
   border-bottom: 2px dotted grey;
   padding: 10px 0;
 }
