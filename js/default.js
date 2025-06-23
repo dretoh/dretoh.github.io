@@ -263,12 +263,14 @@ $(document).ready(function() {
     function() { 
       $(this).css({
         'border': '2px solid green',
+        'font-style': 'bold',
         'font-size': '105%'
       });
     }, 
     function() {
       $(this).css({
         'border': 'none',
+        'font-style': 'normal',
         'font-size': ''
       });
     }
