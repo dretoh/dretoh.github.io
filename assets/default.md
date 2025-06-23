@@ -23,7 +23,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 <br>
 
-<table class="styled-table" align="center">
+<table class="styled-table" class="hover_up" align="center">
   <tbody>
     <tr>
       <td>
@@ -76,7 +76,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 ### Organization
 <br>
-<table class="styled-table" class="width-expand">
+<table class="hover_up" class="styled-table" align="center">
   <thead>
     <tr><th>Name</th><th>Details</th><th>Period</th></tr>
   </thead>
@@ -97,7 +97,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 <br>
 
-<table class="styled-table">
+<table class="styled-table" align="center">
   <tr>
     <td align="center">
       <a href="https://www.youtube.com/watch?v=PHU06V7BhEc&list=RDPHU06V7BhEc&start_radio=1&pp=ygUL7KOg7KeAIGJvYXSgBwE%3D" target="_blank">
