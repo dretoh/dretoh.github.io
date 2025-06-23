@@ -1,4 +1,4 @@
-## Capture The Flags
+## CTFs
 
 <table class="styled-table">
   <thead>
@@ -27,11 +27,13 @@
     </tr>
   </tbody>
 </table>
+<br>
 
 ---
+<br>
 
 ## Wargames
-
+<br>
 <table class="styled-table">
   <thead>
     <tr>
@@ -63,29 +65,11 @@
   </tbody>
 </table>
 
+<br>
+
 ---
+<br>
 
 ## Timeline
 
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <h4>2022 – Started CTF</h4>
-      첫 해킹 대회에 참가하여 경험을 쌓았습니다.
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <h4>2023 – Exploit Research</h4>
-      glibc 익스플로잇 분석을 시작했습니다.
-    </div>
-  </div>
-
-  <div class="timeline-item">
-    <div class="timeline-content">
-      <h4>2024 – Built Mini Games</h4>
-      JavaScript로 공 튀기기 게임을 구현했습니다.
-    </div>
-  </div>
-</div>
+<br>
