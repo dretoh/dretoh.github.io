@@ -68,7 +68,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 <br>
 
-## Frequently Visited
+### Frequently Visited
 
 <br>
 
@@ -86,7 +86,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 <br>
 
-## Organization
+### Organization
 <br>
 <table class="styled-table">
   <thead>
@@ -105,7 +105,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 <br>
 
-### Favorite Tracks### Favorite Tracks
+### Favorite Songs
 
 <br>
 
