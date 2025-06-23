@@ -1,51 +1,22 @@
 <!-- default.md -->
+
 # 👋 Welcome to PWNLIFE
 
 ---
 
-## 🎓 Major & Languages & Hobbies
+## 🚀 Major, Languages, Hobbies
 
-| 🎓 Major                 | 💻 Languages                                    | 🎯 Hobbies                                                |
-| :-----------------------: | :---------------------------------------------: | :--------------------------------------------------------: |
-| Computer Engineering      | C/C++, Python, Rust, JavaScript, Assembly       | Minecraft · Overwatch · Table Tennis · Ice Hockey · Tetrix |
-
----
-
-## 🔍 Interests
-
-> - 🔒 System Security   
-> - 📡 Bluetooth 5.0+ Protocol 
-> - 🐘 eBPF for Networking & Security  
-
----
-
-## 🌐 Frequently Visited
-
-<details>
-<summary>Click to expand</summary>
-
-- [DreamHack](https://www.dreamhack.com/) _(My handle: `pwnlife`)_  
-- [OverTheWire](https://overthewire.org/)  
-- [ExploitDB](https://www.exploit-db.com/)  
-
-</details>
-
----
-
-## 🏫 Organization
-
-| Organization             | Details                   | Year |
-| :----------------------: | :-----------------------: | :--: |
-| WhiteHatSchool           | 2nd Cohort                | 2024 |
-| CyberSecurity            | 1st Cohort                | 2024 |
-| PhysicalLAB              | playground                | 2024 |
-| BestOftheBest            | 14th Cohort               | 2025 |
+<p align="center">
+  <img src="https://img.shields.io/badge/Major-Computer%20Engineering-blue?style=for-the-badge" alt="Major">
+  <img src="https://img.shields.io/badge/Languages-C%2FC%2B%2B|Python|Rust|JS-lightgrey?style=for-the-badge" alt="Languages">
+  <img src="https://img.shields.io/badge/Hobbies-Minecraft|TableTennis|IceHockey-green?style=for-the-badge" alt="Hobbies">
+</p>
 
 ---
 
 ## 🎵 Favorite Tracks
 
-<table>
+<table class="styled-table">
   <tr>
     <td align="center">
       <a href="https://youtu.be/VIDEO_ID_1" target="_blank">
@@ -79,3 +50,40 @@
     <td align="center">🎸 Metal</td>
   </tr>
 </table>
+
+---
+
+## 🔍 Main Interests
+
+> - 🔒 System Security & Architecture  
+> - 📡 Bluetooth 5.0+ Protocol & Security  
+> - 🐘 eBPF for Networking & Security  
+
+---
+
+## 🌐 Frequently Visited
+
+<details><summary>Click?</summary>
+
+- [DreamHack](https://www.dreamhack.com/) _(ID: `pwnlife`)_  
+- [OverTheWire](https://overthewire.org/)  
+- [ExploitDB](https://www.exploit-db.com/)  
+- [GitHub](https://github.com/)  
+</details>
+
+---
+
+## 🏫 Organization
+
+<table class="styled-table">
+  <thead>
+    <tr><th>Organization</th><th>Course</th><th>Year</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>WhiteHatSchool</td><td>2nd Cohort</td><td>2024-2024</td></tr>
+    <tr><td>KoreaCyberSecurity</td><td>1st Cohort</td><td>2024-2024</td></tr>
+    <tr><td>PhysicalLAB</td><td>playground</td><td>2024~</td></tr>
+    <tr><td>BestOftheBest</td><td>14th Cohort</td><td>2025~</td></tr>
+  </tbody>
+</table>
+
