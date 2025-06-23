@@ -163,10 +163,10 @@ $(document).ready(function() {
               if (desc.length > 80) desc = desc.slice(0, 80) + '...';
 
               return {
-                title:   f.name.replace(/\.md$/i, ''),
+                title: f.name.replace(/\.md$/i, ''),
                 date,
                 desc,
-                url:     f.download_url,  
+                url: f.download_url,  
               };
             })
         ));
@@ -236,7 +236,6 @@ $(document).ready(function() {
   $('#menu li').on('click', function() {
     const section = $(this).data('section');
     switch (section) {
-        break;
       case 'history':
         loadMarkdown('assets/history.md');
         break;
