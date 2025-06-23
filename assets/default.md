@@ -64,9 +64,9 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 ### Frequently Visited
 
 <br>
-&nbsp;<div class="hover_up"><a href="https://www.dreamhack.io/">DREAMHACK/pwnlife</a></div>
-&nbsp;<div class="hover_up"><a href="https://www.exploit-db.com/">ExploitDB</a></div>
-&nbsp;<div class="hover_up"><a href="https://overthewire.org/">OverTheWire</a></div>
+&nbsp;<a href="https://www.dreamhack.io/" class="hover_up">DREAMHACK/pwnlife</a>
+&nbsp;<a href="https://www.exploit-db.com/" class="hover_up">ExploitDB</a>
+&nbsp;<a href="https://overthewire.org/" class="hover_up">OverTheWire</a>
 <br>
 
 ---

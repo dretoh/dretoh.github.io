@@ -109,6 +109,25 @@ window.addEventListener('DOMContentLoaded', () =>
   document.fonts.ready.then(renderCanvas);
 
   window.addEventListener('resize', renderCanvas);
+
+
+  $('.hover_up').hover(
+    function() { 
+      $(this).css({
+        'border': '2px solid green',
+        'font-weight': 'bold',
+        'font-size': '105%'
+      });
+    }, 
+    function() {
+      $(this).css({
+        'border': 'none',
+        'font-weight': 'normal',
+        'font-size': ''
+      });
+    }
+  );
+
 });
 
 
@@ -259,22 +278,7 @@ $(document).ready(function() {
 
 
 
-  $('.hover_up').hover(
-    function() { 
-      $(this).css({
-        'border': '2px solid green',
-        'font-style': 'bold',
-        'font-size': '105%'
-      });
-    }, 
-    function() {
-      $(this).css({
-        'border': 'none',
-        'font-style': 'normal',
-        'font-size': ''
-      });
-    }
-  );
+
 
 
 });
