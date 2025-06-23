@@ -114,10 +114,6 @@ footer {
   text-decoration: underline;
 }
 
-.styled-table tbody tr.post-row:hover td {
-  border: 1px solid green;
-}
-
 .post-details td {
   background-color: #fff;
 }
