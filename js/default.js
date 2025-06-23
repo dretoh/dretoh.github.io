@@ -252,70 +252,85 @@ $(document).ready(function() {
   });
 });
 
+function createTimeline() {
+  var timeline = $('#timeline');
+  var events = [
+    'Started studying Computer Engineering.',
+    'Developed a plugin for Minecraft.',
+    'Contributed to an open-source security project.',
+    'Learned system security and network security.'
+  ];
 
-function createArrowBox(content) {
-  var arrowBox = $('<div>', { class: 'arrow-box' });
-  var arrow = $('<div>', { class: 'arrow' });
-  var description = $('<div>', { class: 'description' }).text(content);
+  function createArrowBox(content, position) {
+    var arrowBox = $('<div>', { class: 'arrow-box' });
+    var description = $('<div>', { class: 'description' }).text(content);
 
-  // arrowBox 스타일 설정
-  arrowBox.css({
-    'position': 'relative',
-    'text-align': 'center',
-    'display': 'inline-block',
-    'width': '100%',
-    'max-width': '100%',
-    'border-radius': '10px',
-    'margin': '10px 0'
+    arrowBox.css({
+      'width': '100%',
+      'max-width': '600px',
+      'height': 'auto',
+      'position': 'relative',
+      'margin': '20px 0',
+      'clip-path': 
+        'polygon(0% 0%, \
+                50% 13%, \
+                100% 0%, \
+                100% 75%, \
+                50% 100%, \
+                0% 75%)',
+                /*
+                  top-left corner
+                  notch apex
+                  top-right corner
+                  right wing
+                  arrow tip
+                  left wing 
+                */
+      'background-color': 'lightgrey',
+      'border-radius': '10px',
+      'padding': '10px',
+      'text-align': 'center'
+    });
+
+    description.css({
+      'padding': '10px',
+      'background-color': 'white',
+      'border': '2px solid #ccc',
+      'border-radius': '10px',
+      'max-width': '90%',
+      'margin': '10px auto',
+      'position': 'relative',
+    });
+
+    arrowBox.append(description);
+
+    return arrowBox;
+  }
+
+  events.forEach(function(event, index) {
+    var position = index % 2 === 0 ? 'left' : 'right';
+    
+    var row = $('<div>', { class: 'timeline-row' });
+
+    var leftContentBox = $('<div>', { class: 'content-box left' }).text(position === 'left' ? event : '').css({
+      'flex': '5',
+      'padding': '10px',
+      'text-align': 'center',
+      'background-color': 'lightgreen',
+      'border-radius': '8px'
+    });
+
+    var middleArrowBox = createArrowBox(event, position);
+
+    var rightContentBox = $('<div>', { class: 'content-box right' }).text(position === 'right' ? event : '').css({
+      'flex': '5',
+      'padding': '10px',
+      'text-align': 'center',
+      'background-color': 'lightgrey',
+      'border-radius': '8px'
+    });
+    row.append(leftContentBox).append(middleArrowBox).append(rightContentBox);
+    timeline.append(row);
   });
-
-  // arrow (위쪽 파인 부분, 아래쪽 삼각형 화살표) 스타일 설정
-  arrow.css({
-    'width': '0',
-    'height': '0',
-    // 위쪽 삼각형 부분은 좁게
-    'border-left': '20px solid transparent',
-    'border-right': '20px solid transparent',
-    'border-top': '30px solid green', // 위쪽 삼각형
-    'position': 'absolute',
-    'top': '-30px', // 위로 오므려짐
-    'left': '50%',
-    'transform': 'translateX(-50%)'
-  });
-
-  // description 스타일 설정
-  description.css({
-    'background-color': 'lightgrey',
-    'padding': '20px',
-    'border': '2px solid #ccc',
-    'border-radius': '10px',
-    'margin': '0 auto',
-    'max-width': '90%',
-    'position': 'relative' // description 박스 안에서 화살표를 그릴 수 있게
-  });
-
-  // 이제 아래쪽에 뾰족하게 만드는 부분
-  arrowBox.append(description);
-  arrowBox.append(arrow);
-
-  // 아래쪽 삼각형을 위해서
-  var bottomArrow = $('<div>', { class: 'bottom-arrow' });
-
-  bottomArrow.css({
-    'width': '0',
-    'height': '0',
-    'border-left': '20px solid transparent',
-    'border-right': '20px solid transparent',
-    'border-top': '30px solid green', // 아래쪽 삼각형
-    'position': 'absolute',
-    'bottom': '-30px', // 아래쪽으로 향함
-    'left': '50%',
-    'transform': 'translateX(-50%)'
-  });
-
-  // bottomArrow 추가
-  arrowBox.append(bottomArrow);
-
-  return arrowBox;
 }
 
