@@ -253,64 +253,66 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-  $('#timeline').empty(); 
-  var timeline = $('#timeline');
+  $('[data-section="history"]').on('click', function() {
+    $('#timeline').empty(); 
+    var timeline = $('#timeline');
 
-  var events = [
-    'Started studying Computer Engineering.',
-    'Developed a plugin for Minecraft.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-    'Contributed to an open-source security project.',
-    'Learned system security and network security.aaaaaaaaaaaaaaaaaaaaaaaaaa'
-  ];
+    var events = [
+      'Started studying Computer Engineering.',
+      'Developed a plugin for Minecraft.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      'Contributed to an open-source security project.',
+      'Learned system security and network security.aaaaaaaaaaaaaaaaaaaaaaaaaa'
+    ];
 
-  function createArrowBox(content, position) {
-    
-    var arrowBox = $('<div>', { class: 'arrow-box' });
-    var arrow = $('<div>', { class: 'arrow' });
-    var description = $('<div>', { class: 'description' }).text(content);
+    function createArrowBox(content, position) {
+      
+      var arrowBox = $('<div>', { class: 'arrow-box' });
+      var arrow = $('<div>', { class: 'arrow' });
+      var description = $('<div>', { class: 'description' }).text(content);
 
-    arrowBox.css({
-      'text-align': 'center',
-      'display': 'inline-block',
-      'position': 'relative',
-      'margin': '20px 0',
-      'width': '100%',
-      'max-width': '600px',
-      'border-radius': '10px'
-    });
+      arrowBox.css({
+        'text-align': 'center',
+        'display': 'inline-block',
+        'position': 'relative',
+        'margin': '20px 0',
+        'width': '100%',
+        'max-width': '600px',
+        'border-radius': '10px'
+      });
 
-    arrow.css({
-      'width': '0',
-      'height': '0',
-      'border-left': '20px solid transparent',
-      'border-right': '20px solid transparent',
-      'border-top': '30px solid green',
-      'margin': '0 auto'
-    });
+      arrow.css({
+        'width': '0',
+        'height': '0',
+        'border-left': '20px solid transparent',
+        'border-right': '20px solid transparent',
+        'border-top': '30px solid green',
+        'margin': '0 auto'
+      });
 
-    description.css({
-      'padding': '20px',
-      'background-color': 'white',
-      'border': '2px solid #ccc',
-      'border-radius': '10px',
-      'margin': '10px'
-    });
+      description.css({
+        'padding': '20px',
+        'background-color': 'white',
+        'border': '2px solid #ccc',
+        'border-radius': '10px',
+        'margin': '10px'
+      });
 
-    if (position === 'left') {
-      description.css('background-color', 'lightgreen');
-      arrowBox.append(arrow);
-      arrowBox.append(description);
-    } else {
-      description.css('background-color', 'lightgrey');
-      arrowBox.append(description);
-      arrowBox.append(arrow);
+      if (position === 'left') {
+        description.css('background-color', 'lightgreen');
+        arrowBox.append(arrow);
+        arrowBox.append(description);
+      } else {
+        description.css('background-color', 'lightgrey');
+        arrowBox.append(description);
+        arrowBox.append(arrow);
+      }
+      return arrowBox;
     }
-    return arrowBox;
-  }
 
-  events.forEach(function(event, index) {
-    var position = index % 2 === 0 ? 'left' : 'right';
-    var arrowBox = createArrowBox(event, position);
-    timeline.append(arrowBox);
+    events.forEach(function(event, index) {
+      var position = index % 2 === 0 ? 'left' : 'right';
+      var arrowBox = createArrowBox(event, position);
+      timeline.append(arrowBox);
+    });
   });
 });
