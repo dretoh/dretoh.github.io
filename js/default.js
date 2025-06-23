@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', () =>
     canvas.width  = w * ratio;
     canvas.height = h * ratio;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.translate(0.5, 0.5);
+    //ctx.translate(0.5, 0.5);
     ctx.scale(ratio, ratio);
   }
 
@@ -118,87 +118,6 @@ window.addEventListener('DOMContentLoaded', () =>
 
 
 
-
-
-// // Post
-// const contentDiv = document.getElementById('posts');
-
-// window.addEventListener('DOMContentLoaded', handleLocation);
-// window.addEventListener('popstate', handleLocation);
-
-// document.addEventListener('click', (event) => {
-//   if (event.target.matches('a[data-link]')) {
-//     event.preventDefault();
-//     const href = event.target.getAttribute('href');
-//     history.pushState(null, null, href);
-//     handleLocation();
-//   }
-// });
-
-// async function handleLocation() {
-//   marked.setOptions({
-//     gfm: true,        // GitHub-flavored markdown
-//     breaks: true,     // Enter -> <br>
-//     smartLists: true,
-//     smartypants: true 
-//   });	
-//   let path = window.location.pathname;
-//   let page = (path === '/' || path.endsWith('/index.html') || path === '') ? 'default' : path.substring(1);
-//   page = page.split('/')[0] || 'default';
-
-//   try {
-//     const res = await fetch(`./assets/${page}.md`);
-//     if (!res.ok) throw new Error('Not found');
-//     const mdText = await res.text();
-//     contentDiv.innerHTML = marked.parse(mdText);
-//   } catch (err) {
-//     contentDiv.innerHTML = `<h2>Page Not Found</h2>`;
-//   }
-// }
-
-
-/*
-$(function() {
-  marked.setOptions({
-    gfm: true,
-    breaks: true,
-    smartLists: true,
-    smartypants: true,
-    headerIds: true,
-    mangle: true,
-    highlight: function(code, lang) {
-      if (window.hljs && hljs.getLanguage(lang)) {
-        return hljs.highlight(lang, code).value;
-      }
-      return code;
-    }
-  });
-
-  function loadMarkdown(section) {
-    const mdPath = `assets/${section}.md`;
-    $.get(mdPath)
-      .done(function(raw) {
-        const html = marked.parse(raw);
-        $('#posts').html(html);
-        $('#posts img').css({ 'max-width': '100%', 'height': 'auto' });
-        $('#posts table').css({ 'max-width': '100%', 'overflow-x': 'auto', 'display': 'block' });
-      })
-      .fail(function() {
-        $('#posts').html('<p>Failed to load content :(</p>');
-      });
-  }
-
-  $('#menu li').on('click', function() {
-    const section = $(this).data('section');
-    if (section) loadMarkdown(section);
-  });
-
-  loadMarkdown('default');
-});
-
-
-*/
-
 $(document).ready(function() {
   marked.setOptions({
     gfm: true,
@@ -217,68 +136,104 @@ $(document).ready(function() {
       $('#posts').html('<p>Failed to load content.</p>');
     });
   }
-	function loadPosts() {
-	  $('#posts').html('<p>Loading posts...</p>');
-	  const apiUrl = 'https://api.github.com/repos/dretoh/dretoh.github.io/contents/assets/posts';
+  function loadPosts() {
+    $('#posts').html('<p>Loading posts...</p>');
+    const apiUrl = 'https://api.github.com/repos/dretoh/dretoh.github.io/contents/assets/posts';
 
-	  fetch(apiUrl)
-	    .then(res => {
-	      if (!res.ok) throw new Error('GitHub API error: ' + res.status);
-	      return res.json();
-	    })
-	    .then(files => {
-	      const mdFiles = files.filter(f => f.name.endsWith('.md'));
-	      return Promise.all(mdFiles.map(f =>
-	        fetch(f.download_url)
-	          .then(r => {
-	            if (!r.ok) throw new Error(`Failed to fetch ${f.name}`);
-	            return r.text();
-	          })
-	          .then(content => {
-	            const allLines = content.replace(/^\uFEFF/, '').split(/\r?\n/);
-	            const header = allLines.slice(0, 4).map(l => l.trim());
+    fetch(apiUrl)
+      .then(res => {
+        if (!res.ok) throw new Error('GitHub API error: ' + res.status);
+          return res.json();
+      })
+      .then(files => {
+        const mdFiles = files.filter(f => f.name.endsWith('.md'));
 
-	            const dateLine = header.find(l => /^date\s*:/i.test(l)) || '';
-	            const dateMatch = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
-	            const date = dateMatch
-	              ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
-	              : '';
+        return Promise.all(mdFiles.map(f =>
+          fetch(f.download_url)
+            .then(r => {
+              if (!r.ok) throw new Error(`Failed to fetch ${f.name}`);
+              return r.text();
+            })
+            .then(content => {
+              const allLines = content.replace(/^\uFEFF/, '').split(/\r?\n/);
+              const header = allLines.slice(0, 4).map(l => l.trim());
 
-	            const descLine = header.find(l => /^description\s*:/i.test(l)) || '';
-	            let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
-	            if (desc.length > 80) desc = desc.slice(0, 80) + '...';
+              const dateLine = header.find(l => /^date\s*:/i.test(l)) || '';
+              const dm = dateLine.match(/(\d{4})\/(\d{2})\/(\d{2})/);
+              const date = dm ? `${dm[1]}-${dm[2]}-${dm[3]}` : '';
 
-	            const title = f.name.replace(/\.md$/i, '');
-	            return { title, date, desc };
-	          })
-	      ));
-	    })
-	    .then(items => {
-	      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+              const descLine = header.find(l => /^description\s*:/i.test(l)) || '';
+              let desc = descLine.replace(/^description\s*:\s*/i, '').trim();
+              if (desc.length > 80) desc = desc.slice(0, 80) + '...';
 
-	      let html = '<table class="styled-table">'
-	               +   '<thead><tr>'
-	               +     '<th>Title</th><th>Date</th><th>Description</th>'
-	               +   '</tr></thead>'
-	               +   '<tbody>';
-	      items.forEach(({ title, date, desc }) => {
-	        html += `<tr>
-	                   <td>${title}</td>
-	                   <td>${date}</td>
-	                   <td>${desc}</td>
-	                 </tr>`;
-	      });
-	      html += '</tbody></table>';
+              const title = f.name.replace(/\.md$/i, '');
+              return {
+                title,
+                date,
+                desc,
+                url: f.download_url
+              };
+            })
+       ));
+      })
+      .then(items => {
+        items.sort((a, b) => new Date(b.date) - new Date(a.date));
+        let html = '<table class="styled-table">';
+        html += '<thead><tr><th>Title</th><th>Date</th><th>Description</th></tr></thead>';
+        html += '<tbody>';
+        items.forEach(item => {
+          html += `
+            <tr class="post-row" data-url="${item.url}">
+              <td>${item.title}</td>
+              <td>${item.date}</td>
+              <td>${item.desc}</td>
+            </tr>
+          `;
+        });
+        html += '</tbody></table>';
+        $('#posts').html(html);
 
-	      $('#posts').html(html);
-	    })
-	    .catch(err => {
-	      console.error(err);
-	      $('#posts').html('<p>Failed to load posts.</p>');
-	    });
-	}
+        $('.post-row').hover(
+            function() { $(this).css('border', '1px solid green'); },
+            function() { $(this).css('border', ''); }
+          );
 
+        $('.post-row').on('click', function() {
+          const $this = $(this);
+        
+          if ($this.next().hasClass('post-details')) {
+            $this.next().remove();
+            return;
+          }
+        
+          const url = $this.data('url');
+          const colspan = $this.find('td').length;
+        
+          const $detailsRow = $(`
+            <tr class="post-details">
+              <td colspan="${colspan}">
+                <div class="post-content">Loading...</div>
+              </td>
+            </tr>
+          `);
+          $this.after($detailsRow);
 
+          
+          fetch(url)
+            .then(r => r.text())
+            .then(md => {
+              $detailsRow.find('.post-content').html(marked.parse(md));
+            })
+           .catch(() => {
+              $detailsRow.find('.post-content').text('Failed to load content.');
+            });
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        $('#posts').html('<p>Failed to load posts.</p>');
+      });
+    }
 
   loadMarkdown('assets/default.md');
 
