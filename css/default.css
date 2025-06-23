@@ -203,3 +203,7 @@ footer {
   color: #0066cc;
   text-decoration: underline;
 }
+
+.width-expand {
+  width: 100%;
+}

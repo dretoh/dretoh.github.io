@@ -74,10 +74,10 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 <details><summary>Click</summary>
 
-- [DreamHack](https://www.dreamhack.com/) _(ID: `pwnlife`)_  
+- [DreamHack](https://www.dreamhack.io/) _(ID: `pwnlife`)_  
 - [OverTheWire](https://overthewire.org/)  
 - [ExploitDB](https://www.exploit-db.com/)  
-- [GitHub](https://github.com/)  
+
 </details>
 
 <br>
@@ -88,15 +88,15 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 ### Organization
 <br>
-<table class="styled-table">
+<table class="styled-table" class="width-expand">
   <thead>
-    <tr><th>Organization</th><th>Course</th><th>Year</th></tr>
+    <tr><th>Name</th><th>Details</th><th>Period</th></tr>
   </thead>
   <tbody>
-    <tr><td>WhiteHatSchool</td><td>2nd Cohort</td><td>2024-2024</td></tr>
-    <tr><td>KoreaCyberSecurity</td><td>1st Cohort</td><td>2024-2024</td></tr>
-    <tr><td>PhysicalLAB</td><td>playground</td><td>2024~</td></tr>
-    <tr><td>BestOftheBest</td><td>14th Cohort</td><td>2025~</td></tr>
+    <tr><td>WhiteHatSchool</td><td>2nd Cohort/Security</td><td>2024-2024</td></tr>
+    <tr><td>KoreaCyberSecurity</td><td>1st Cohort/National Sec</td><td>2024-2024</td></tr>
+    <tr><td>PhysicalLAB</td><td>playground/Pwn</td><td>2024~.</td></tr>
+    <tr><td>BestOftheBest</td><td>14th Cohort/Vuln Analysis</td><td>2025~.</td></tr>
   </tbody>
 </table>
 <br>
