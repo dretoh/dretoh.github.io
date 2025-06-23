@@ -256,7 +256,7 @@ $(document).ready(function() {
   $('[data-section="history"]').on('click', function() {
     $('#timeline').empty(); 
     var timeline = $('#timeline');
-
+    console.log(timeline);
     var events = [
       'Started studying Computer Engineering.',
       'Developed a plugin for Minecraft.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
@@ -306,6 +306,7 @@ $(document).ready(function() {
         arrowBox.append(description);
         arrowBox.append(arrow);
       }
+      console.log(arrowBox);
       return arrowBox;
     }
 
