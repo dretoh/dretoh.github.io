@@ -110,10 +110,14 @@ window.addEventListener('DOMContentLoaded', () =>
 
   window.addEventListener('resize', renderCanvas);
 
+});
 
+
+$(document).ready(function(){
   $('.hover_up').hover(
     function() { 
       $(this).css({
+        'cursor': 'pointer',
         'border': '2px solid green',
         'font-weight': 'bold',
         'font-size': '105%'
@@ -127,11 +131,7 @@ window.addEventListener('DOMContentLoaded', () =>
       });
     }
   );
-
 });
-
-
-
 
 
 

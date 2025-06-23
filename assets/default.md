@@ -68,7 +68,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 &nbsp;<a href="https://www.exploit-db.com/" class="hover_up">ExploitDB</a>
 &nbsp;<a href="https://overthewire.org/" class="hover_up">OverTheWire</a>
 <br>
-
+<br>
 ---
 
 <br>
