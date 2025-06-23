@@ -11,6 +11,8 @@ body {
   background-color: #EFEFEE;
 }
 
+
+
 #root-box {
   width: 70%;
   max-width: 1200px;
@@ -153,4 +155,9 @@ footer {
   padding: 12px 16px;
   border-radius: 4px;
   margin-left: 30px;
+}
+
+
+.styled-table tbody tr.post-row:hover td {
+  border: 1px solid green;
 }

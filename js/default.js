@@ -194,9 +194,9 @@ $(document).ready(function() {
         $('#posts').html(html);
 
         $('.post-row').hover(
-            function() { $(this).css('border', '1px solid green'); },
-            function() { $(this).css('border', ''); }
-          );
+          function() { $(this).css('outline', '1px solid green'); },
+          function() { $(this).css('outline', ''); }
+        );
 
         $('.post-row').on('click', function() {
           const $this = $(this);
