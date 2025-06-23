@@ -11,19 +11,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>squ1rrel</td>
-      <td>2025</td>
-      <td>Pwn</td>
-      <td>gamble</td>
-      <td><a href="https://example.com/dicectf-babyvm">writeup</a></td>
-    </tr>
-    <tr>
-      <td>squ1rrel</td>
-      <td>2025</td>
-      <td>Pwn</td>
-      <td>gamble</td>
-      <td>writeup</td>
+    <tr class="hover_up">
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td><a href="https://example.com">writeup</a></td>
     </tr>
   </tbody>
 </table>
@@ -39,28 +32,16 @@
     <tr>
       <th>Platform</th>
       <th>Category</th>
-      <th>No</th>
+      <th>Details</th>
       <th>Writeup</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>pwnable.kr</td>
-      <td>N/A</td>
-      <td>N/A</td>
-      <td><a href="https://pwnable.kr">writeup</a></td>
-    </tr>
-    <tr>
+    <tr class="hover_up">
       <td>dreamhack.io</td>
       <td>pwn</td>
-      <td>0</td>
-      <td>dreamvm – <a href="https://dreamhack.io">writeup</a></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td>1</td>
-      <td>tinybackdoor – <a href="https://dreamhack.io">writeup</a></td>
+      <td>-</td>
+      <td><a href="https://dreamhack.io/users/70093/wargame?scope=writeups">writeups</a></td>
     </tr>
   </tbody>
 </table>
@@ -71,6 +52,6 @@
 <br>
 
 ## Timeline
-
+<br>
 <div id="timeline"></div>
 <br>

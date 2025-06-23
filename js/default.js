@@ -301,10 +301,10 @@ function createTimeline() {
   const available = totalW - (GAP * 2) - arrowW;
   const contentW = Math.floor(available / 2);     
   const events = [
-    'ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠStarted studying Computer Engineering.',
-    'Developed a plugin for Minecraft. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-    'Contributed to an open-source security project.',
-    'Learned system security and network security. aaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    '[2015-2017] \n - Develop Minecraft Server',
+    '[2024] \n - WHS2 20 \n - KoreaCyber \n - HSPACE Rust',
+    '[2024] \n - AutoHack2024 \n - CISC-2024(bpf)',
+    '[2025] \n - Internship \n - BoB 14th'
   ];
 
   $.each(events, function(idx, text) {
