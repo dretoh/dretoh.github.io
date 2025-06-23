@@ -319,7 +319,7 @@ function createTimeline() {
     const row = $('<div>').addClass('timeline-row');
 
     const leftBox = $('<div>')
-      .addClass('content-box left')
+      .addClass('content-box left hover_up')
       .text(isLeft ? text : '')
       .css({
         visibility: isLeft ? 'visible' : 'hidden',
@@ -331,7 +331,7 @@ function createTimeline() {
       .css('width', arrowW + 'px');
 
     const rightBox = $('<div>')
-      .addClass('content-box right')
+      .addClass('content-box right hover_up')
       .text(!isLeft ? text : '')
       .css({
         visibility: !isLeft ? 'visible' : 'hidden',
