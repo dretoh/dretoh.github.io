@@ -282,7 +282,7 @@ function createTimeline() {
       background-color: #ccc;
       clip-path: polygon(
         0%   0%,
-        50%  13%,
+        50%  25%, 
         100% 0%,
         100% 75%,
         50%  100%,
@@ -293,6 +293,7 @@ function createTimeline() {
       justify-content: center;
     }
   `;
+
   if ($('#timeline-styles').length === 0) {
     $('<style>', { id: 'timeline-styles' })
       .text(styleContent)
@@ -307,27 +308,29 @@ function createTimeline() {
 
   const events = [
     'Started studying Computer Engineering.',
-    'Developed a plugin for Minecraft.',
+    'Developed a plugin for Minecraft.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
     'Contributed to an open-source security project.',
-    'Learned system security and network security.'
+    'Learned system security and network security.aaaaaaaaaaaaaaaaaaaaaaaaaaa'
   ];
 
   $.each(events, function(idx, eventText) {
     const isLeft = (idx % 2 === 0);
 
-    const $row = $('<div>').addClass('timeline-row');
+    const row = $('<div>').addClass('timeline-row');
 
-    const $left = $('<div>')
+    const left = $('<div>')
       .addClass('content-box left')
-      .text(isLeft ? eventText : '');
+      .text(isLeft ? eventText : '')
+      .toggle(isLeft);;
 
-    const $arrow = $('<div>').addClass('arrow-box');
+    const arrow = $('<div>').addClass('arrow-box');
 
-    const $right = $('<div>')
+    const right = $('<div>')
       .addClass('content-box right')
-      .text(!isLeft ? eventText : '');
+      .text(!isLeft ? eventText : '')
+      .toggle(!isLeft);;
 
-    $row.append($left, $arrow, $right).appendTo(timeline);
+    $row.append(left, arrow, right).appendTo(timeline);
   });
 }
 
