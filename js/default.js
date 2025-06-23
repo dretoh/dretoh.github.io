@@ -251,7 +251,6 @@ $(document).ready(function() {
     }
   });
 });
-
 function createTimeline() {
   const styleContent = `
     #timeline {
@@ -264,6 +263,16 @@ function createTimeline() {
       justify-content: space-between;
       gap: 20px;
       margin-bottom: 40px;
+
+      flex-direction: row;
+    }
+
+    .timeline-row.stacked {
+      flex-direction: column;
+    }
+    .timeline-row.stacked .arrow-box {
+
+      margin: 20px auto;
     }
     .content-box {
       flex: 1;
@@ -272,6 +281,8 @@ function createTimeline() {
       background-color: #dff0d8;
       border-radius: 8px;
       min-height: 60px;
+
+      word-wrap: break-word;
     }
     .content-box.right {
       background-color: #f2f2f2;
@@ -282,7 +293,7 @@ function createTimeline() {
       background-color: #ccc;
       clip-path: polygon(
         0%   0%,
-        50%  25%, 
+        50%  25%,
         100% 0%,
         100% 75%,
         50%  100%,
@@ -294,44 +305,49 @@ function createTimeline() {
     }
   `;
 
-  if ($('#timeline-styles').length === 0) {
+  if (!$('#timeline-styles').length) {
     $('<style>', { id: 'timeline-styles' })
       .text(styleContent)
       .appendTo('head');
   }
 
-  let timeline = $('#timeline');
+  const timeline = $('#timeline');
   if (!timeline.length) {
+    console.error('Error: #timeline element not found.');
     return;
   }
 
-
   const events = [
     'Started studying Computer Engineering.',
-    'Developed a plugin for Minecraft.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    'Developed a plugin for Minecraft. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
     'Contributed to an open-source security project.',
-    'Learned system security and network security.aaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    'Learned system security and network security. aaaaaaaaaaaaaaaaaaaaaaaaaaa'
   ];
 
+
   $.each(events, function(idx, eventText) {
-    const isLeft = (idx % 2 === 0);
-
+    const isLeft = idx % 2 === 0;
     const row = $('<div>').addClass('timeline-row');
-
     const left = $('<div>')
       .addClass('content-box left')
-      .text(isLeft ? eventText : '')
+      .text(eventText)
       .css('visibility', isLeft ? 'visible' : 'hidden');
-
     const arrow = $('<div>').addClass('arrow-box');
-
     const right = $('<div>')
       .addClass('content-box right')
-      .text(!isLeft ? eventText : '')
-      .css('visibility', isLeft ?  'hidden' : 'visible');
+      .text(eventText)
+      .css('visibility', !isLeft ? 'visible' : 'hidden');
 
     row.append(left, arrow, right).appendTo(timeline);
+
+    $.each([left, right], function(_, box) {
+      const el = box.get(0);
+      if (el.scrollWidth > box.innerWidth()) {
+        row.addClass('stacked');
+        row.children().css('width', '100%');
+        return false;
+      }
+    });
   });
 }
-
 
