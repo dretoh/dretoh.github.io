@@ -1,19 +1,28 @@
 <!-- default.md -->
 
 ### Welcome!
+
 <br>
+
 Hi! I'm a student majoring in **Computer Engineering**, focusing on **development**, **network**, and **system security**.  
 While I’m working towards becoming a specialist in these areas, I know it's going to take time... but HEY, I'm not in a rush—**I've got all the time and opportunities ahead of me** to get there!
+
 <br>
+
 Meanwhile, I’ve been playing **Minecraft** since 2015, and that’s when I first got into coding. 
 Building servers with **Java Plugins** and **Skript** made me realize my interest in development.  
 I’m confident in my ability to build **Korean-style Architecture** in Minecraft, and this skill has been applied to all the servers I’ve created.
+
 <br>
+
 ---
+
 <br>
 
 ### Major, Languages, Hobbies
+
 <br>
+
 <table class="styled-table" align="center">
   <thead>
     <tr>
@@ -46,15 +55,21 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 <br>
 
 ### Main Interests
+
 > - System Security & Architecture  
 > - Bluetooth 5.0+ Protocol & Security  
 > - eBPF for Networking & Security  
+
 <br>
+
 ---
+
 <br>
 
 ## Frequently Visited
+
 <br>
+
 <details><summary>Click</summary>
 
 - [DreamHack](https://www.dreamhack.com/) _(ID: `pwnlife`)_  
@@ -62,8 +77,11 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 - [ExploitDB](https://www.exploit-db.com/)  
 - [GitHub](https://github.com/)  
 </details>
+
 <br>
+
 ---
+
 <br>
 
 ## Organization
@@ -80,11 +98,15 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
   </tbody>
 </table>
 <br>
+
 ---
+
 <br>
 
 ### Favorite Tracks### Favorite Tracks
+
 <br>
+
 <table class="styled-table">
   <tr>
     <td align="center">
@@ -119,4 +141,5 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
     <td align="center">🎸 Metal</td>
   </tr>
 </table>
+
 <br>
