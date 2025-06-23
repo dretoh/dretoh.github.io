@@ -114,23 +114,20 @@ window.addEventListener('DOMContentLoaded', () =>
 
 
 $(document).ready(function(){
-  $('.hover_up').hover(
-    function() { 
+  $('.hover_up').on("mouseenter", function() { 
       $(this).css({
         'cursor': 'pointer',
         'border': '2px solid green',
         'font-weight': 'bold',
         'font-size': '105%'
       });
-    }, 
-    function() {
+    }).on("mouseleave",function() {
       $(this).css({
         'border': 'none',
         'font-weight': 'normal',
         'font-size': ''
       });
-    }
-  );
+    });
 });
 
 

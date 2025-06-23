@@ -51,9 +51,9 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 ### Main Interests
 
-&nbsp;<div class="hover_up">System Security & Architecture</div>
-&nbsp;<div class="hover_up">Bluetooth 5.0+ Protocol & Security</div>
-&nbsp;<div class="hover_up">eBPF for Networking & Security</div>
+<div class="hover_up">System Security & Architecture</div>
+<div class="hover_up">Bluetooth 5.0+ Protocol & Security</div>
+<div class="hover_up">eBPF for Networking & Security</div>
 
 <br>
 
@@ -64,11 +64,12 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 ### Frequently Visited
 
 <br>
-&nbsp;<a href="https://www.dreamhack.io/" class="hover_up">DREAMHACK/pwnlife</a>
-&nbsp;<a href="https://www.exploit-db.com/" class="hover_up">ExploitDB</a>
-&nbsp;<a href="https://overthewire.org/" class="hover_up">OverTheWire</a>
+<a href="https://www.dreamhack.io/" class="hover_up">DREAMHACK/pwnlife</a>
+<a href="https://www.exploit-db.com/" class="hover_up">ExploitDB</a>
+<a href="https://overthewire.org/" class="hover_up">OverTheWire</a>
 <br>
 <br>
+
 ---
 
 <br>
