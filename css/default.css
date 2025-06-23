@@ -88,6 +88,7 @@ footer {
   width: 100%;
   border-collapse: collapse;
   cursor: pointer;
+  background: rgba(255,255,240,0.8);
 }
 
 .styled-table th, .styled-table td {
@@ -160,6 +161,10 @@ footer {
 
 
 #posts {
+  background-color: #f4ecd8;
+  font-family: 'Cormorant Garamond', serif; 
+  color: #3e3023; 
+
   white-space: pre-wrap;
   word-break: keep-all;
   line-height: 1.5;
