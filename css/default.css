@@ -1,9 +1,9 @@
-/*font-family: "Montserrat", sans-serif;*/
+/*font-family: "Cormorant Garamond", sans-serif;*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Cormorant Garamond', serif; 
+  font-family: 'Montserrat', serif; 
   
   color: #000;
 }
@@ -86,10 +86,17 @@ footer {
 
 
 .styled-table {
+  table-layout: auto;
+  word-wrap: break-word;
+
   width: 100%;
   border-collapse: collapse;
   cursor: pointer;
   background: rgba(255,255,240,0.8);
+
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
 }
 
 .styled-table th, .styled-table td {
@@ -162,9 +169,12 @@ footer {
 
 
 #posts {
+  overflow: hidden;
+  word-wrap: break-word;
+  max-width: 100%;
+  margin: 0 auto;
 
   white-space: pre-wrap;
-  word-break: keep-all;
   line-height: 1.5;
   padding: 10px;
 }

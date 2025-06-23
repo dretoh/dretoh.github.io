@@ -1,10 +1,16 @@
 <!-- default.md -->
 
-# 👋 Welcome to PWNLIFE
+### Welcome!
+
+Hi! I'm a student majoring in **Computer Engineering**, focusing on **development**, **network**, and **system security**.  
+While I’m working towards becoming a specialist in these areas, I know it's going to take time... but HEY, I'm not in a rush—**I've got all the time and opportunities ahead of me** to get there!
+
+Meanwhile, I’ve been playing **Minecraft** since 2015, and that’s when I first got into coding. Building servers with **Java Plugins** and **Skript** made me realize my interest in development.  
+I’m confident in my ability to build **Korean-style Architecture** in Minecraft, and this skill has been applied to all the servers I’ve created.
 
 ---
 
-## 🚀 Major, Languages, Hobbies
+### 🚀 Major, Languages, Hobbies
 
 <p align="center">
   <img src="https://img.shields.io/badge/Major-Computer%20Engineering-blue?style=for-the-badge" alt="Major">
@@ -14,7 +20,43 @@
 
 ---
 
-## 🎵 Favorite Tracks
+### 🔍 Main Interests
+
+> - System Security & Architecture  
+> - Bluetooth 5.0+ Protocol & Security  
+> - eBPF for Networking & Security  
+
+---
+
+## 🌐 Frequently Visited
+
+<details><summary>Click?</summary>
+
+- [DreamHack](https://www.dreamhack.com/) _(ID: `pwnlife`)_  
+- [OverTheWire](https://overthewire.org/)  
+- [ExploitDB](https://www.exploit-db.com/)  
+- [GitHub](https://github.com/)  
+</details>
+
+---
+
+## 🏫 Organization
+
+<table class="styled-table">
+  <thead>
+    <tr><th>Organization</th><th>Course</th><th>Year</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>WhiteHatSchool</td><td>2nd Cohort</td><td>2024-2024</td></tr>
+    <tr><td>KoreaCyberSecurity</td><td>1st Cohort</td><td>2024-2024</td></tr>
+    <tr><td>PhysicalLAB</td><td>playground</td><td>2024~</td></tr>
+    <tr><td>BestOftheBest</td><td>14th Cohort</td><td>2025~</td></tr>
+  </tbody>
+</table>
+
+---
+
+### 🎵 Favorite Tracks
 
 <table class="styled-table">
   <tr>
@@ -50,40 +92,3 @@
     <td align="center">🎸 Metal</td>
   </tr>
 </table>
-
----
-
-## 🔍 Main Interests
-
-> - 🔒 System Security & Architecture  
-> - 📡 Bluetooth 5.0+ Protocol & Security  
-> - 🐘 eBPF for Networking & Security  
-
----
-
-## 🌐 Frequently Visited
-
-<details><summary>Click?</summary>
-
-- [DreamHack](https://www.dreamhack.com/) _(ID: `pwnlife`)_  
-- [OverTheWire](https://overthewire.org/)  
-- [ExploitDB](https://www.exploit-db.com/)  
-- [GitHub](https://github.com/)  
-</details>
-
----
-
-## 🏫 Organization
-
-<table class="styled-table">
-  <thead>
-    <tr><th>Organization</th><th>Course</th><th>Year</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>WhiteHatSchool</td><td>2nd Cohort</td><td>2024-2024</td></tr>
-    <tr><td>KoreaCyberSecurity</td><td>1st Cohort</td><td>2024-2024</td></tr>
-    <tr><td>PhysicalLAB</td><td>playground</td><td>2024~</td></tr>
-    <tr><td>BestOftheBest</td><td>14th Cohort</td><td>2025~</td></tr>
-  </tbody>
-</table>
-
