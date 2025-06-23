@@ -253,98 +253,69 @@ $(document).ready(function() {
 });
 
 
+function createArrowBox(content) {
+  var arrowBox = $('<div>', { class: 'arrow-box' });
+  var arrow = $('<div>', { class: 'arrow' });
+  var description = $('<div>', { class: 'description' }).text(content);
 
-function createTimeline() {
-  var timeline = $('#timeline');
-  var events = [
-    'Started studying Computer Engineering.',
-    'Developed a plugin for Minecraft.',
-    'Contributed to an open-source security project.',
-    'Learned system security and network security.'
-  ];
-
-  function createArrowBox(content) {
-    var arrowBox = $('<div>', { class: 'arrow-box' });
-    var arrow = $('<div>', { class: 'arrow' });
-    var description = $('<div>', { class: 'description' }).text(content);
-
-    arrowBox.css({
-      'position': 'relative',
-      'text-align': 'center',
-      'display': 'inline-block',
-      'width': '100%',
-      'max-width': '100%',
-      'border-radius': '10px',
-      'margin': '10px 0'
-    });
-
-    arrow.css({
-      'width': '0',
-      'height': '0',
-      'border-left': '20px solid transparent',
-      'border-right': '20px solid transparent',
-      'border-top': '30px solid green',
-      'position': 'absolute',
-      'top': '-30px', // upside
-      'left': '50%',
-      'transform': 'translateX(-50%)'
-    });
-
-    description.css({
-      'background-color': 'lightgrey',
-      'padding': '20px',
-      'border': '2px solid #ccc',
-      'border-radius': '10px',
-      'margin': '0 auto',
-      'max-width': '90%'
-    });
-
-    
-    arrowBox.append(arrow);
-    arrowBox.append(description);
-
-    return arrowBox;
-  }
-
-  function createContentBox(content, position) {
-    var contentBox = $('<div>', { class: 'content-box' }).text(content);
-    
-    contentBox.css({
-      'display': 'inline-block',
-      'width': position === 'left' ? '45%' : '45%',
-      'text-align': 'center',
-      'background-color': position === 'left' ? 'lightgreen' : 'lightblue',
-      'border': '2px solid #ccc',
-      'border-radius': '10px',
-      'padding': '15px'
-    });
-
-    return contentBox;
-  }
-
-  events.forEach(function(event, index) {
-    var leftPosition = index % 2 === 0 ? 'left' : 'right';
-    var rightPosition = index % 2 === 0 ? 'right' : 'left';
-
-    var leftBox = createContentBox(event, leftPosition);
-    var arrowBox = createArrowBox(event);
-    var rightBox = createContentBox(event, rightPosition);
-
-    var row = $('<div>', { class: 'timeline-row' });
-
-    row.css({
-      'display': 'flex',
-      'justify-content': 'space-between',
-      'align-items': 'center',
-      'width': '100%',
-      'max-width': '100%',
-      'margin': '10px 0'
-    });
-
-    row.append(leftBox);
-    row.append(arrowBox);
-    row.append(rightBox);
-
-    timeline.append(row);
+  // arrowBox 스타일 설정
+  arrowBox.css({
+    'position': 'relative',
+    'text-align': 'center',
+    'display': 'inline-block',
+    'width': '100%',
+    'max-width': '100%',
+    'border-radius': '10px',
+    'margin': '10px 0'
   });
+
+  // arrow (위쪽 파인 부분, 아래쪽 삼각형 화살표) 스타일 설정
+  arrow.css({
+    'width': '0',
+    'height': '0',
+    // 위쪽 삼각형 부분은 좁게
+    'border-left': '20px solid transparent',
+    'border-right': '20px solid transparent',
+    'border-top': '30px solid green', // 위쪽 삼각형
+    'position': 'absolute',
+    'top': '-30px', // 위로 오므려짐
+    'left': '50%',
+    'transform': 'translateX(-50%)'
+  });
+
+  // description 스타일 설정
+  description.css({
+    'background-color': 'lightgrey',
+    'padding': '20px',
+    'border': '2px solid #ccc',
+    'border-radius': '10px',
+    'margin': '0 auto',
+    'max-width': '90%',
+    'position': 'relative' // description 박스 안에서 화살표를 그릴 수 있게
+  });
+
+  // 이제 아래쪽에 뾰족하게 만드는 부분
+  arrowBox.append(description);
+  arrowBox.append(arrow);
+
+  // 아래쪽 삼각형을 위해서
+  var bottomArrow = $('<div>', { class: 'bottom-arrow' });
+
+  bottomArrow.css({
+    'width': '0',
+    'height': '0',
+    'border-left': '20px solid transparent',
+    'border-right': '20px solid transparent',
+    'border-top': '30px solid green', // 아래쪽 삼각형
+    'position': 'absolute',
+    'bottom': '-30px', // 아래쪽으로 향함
+    'left': '50%',
+    'transform': 'translateX(-50%)'
+  });
+
+  // bottomArrow 추가
+  arrowBox.append(bottomArrow);
+
+  return arrowBox;
 }
+
