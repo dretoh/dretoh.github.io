@@ -1,22 +1,19 @@
 <!-- default.md -->
 
 ### Welcome!
-
+<br>
 Hi! I'm a student majoring in **Computer Engineering**, focusing on **development**, **network**, and **system security**.  
 While I’m working towards becoming a specialist in these areas, I know it's going to take time... but HEY, I'm not in a rush—**I've got all the time and opportunities ahead of me** to get there!
-
+<br>
 Meanwhile, I’ve been playing **Minecraft** since 2015, and that’s when I first got into coding. 
 Building servers with **Java Plugins** and **Skript** made me realize my interest in development.  
 I’m confident in my ability to build **Korean-style Architecture** in Minecraft, and this skill has been applied to all the servers I’ve created.
-
+<br>
 ---
+<br>
 
 ### Major, Languages, Hobbies
-
----
-
-### Major, Languages, Hobbies
-
+<br>
 <table class="styled-table" align="center">
   <thead>
     <tr>
@@ -44,19 +41,20 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
     </tr>
   </tbody>
 </table>
-
-
+<br>
 ---
+<br>
 
 ### Main Interests
 > - System Security & Architecture  
 > - Bluetooth 5.0+ Protocol & Security  
 > - eBPF for Networking & Security  
-
+<br>
 ---
+<br>
 
 ## Frequently Visited
-
+<br>
 <details><summary>Click</summary>
 
 - [DreamHack](https://www.dreamhack.com/) _(ID: `pwnlife`)_  
@@ -64,11 +62,12 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 - [ExploitDB](https://www.exploit-db.com/)  
 - [GitHub](https://github.com/)  
 </details>
-
+<br>
 ---
+<br>
 
 ## Organization
-
+<br>
 <table class="styled-table">
   <thead>
     <tr><th>Organization</th><th>Course</th><th>Year</th></tr>
@@ -80,16 +79,17 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
     <tr><td>BestOftheBest</td><td>14th Cohort</td><td>2025~</td></tr>
   </tbody>
 </table>
-
+<br>
 ---
+<br>
 
 ### Favorite Tracks
-
+<br>
 <table class="styled-table">
   <tr>
     <td align="center">
-      <a href="https://youtu.be/VIDEO_ID_1" target="_blank">
-        <img src="https://img.youtube.com/vi/VIDEO_ID_1/mqdefault.jpg" width="120" alt="Track 1"><br>
+      <a href="https://www.youtube.com/watch?v=PHU06V7BhEc&list=RDPHU06V7BhEc&start_radio=1&pp=ygUL7KOg7KeAIGJvYXSgBwE%3D" target="_blank">
+        <img src="https://i.ytimg.com/vi/PHU06V7BhEc/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLBOZd2D-Q7QyJeHvjB_aVm6PYYZmQ" width="120" alt="Track 1"><br>
         Song Title 1
       </a>
     </td>
@@ -119,3 +119,4 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
     <td align="center">🎸 Metal</td>
   </tr>
 </table>
+<br>
