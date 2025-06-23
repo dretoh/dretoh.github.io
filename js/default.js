@@ -330,7 +330,7 @@ function createTimeline() {
       .text(!isLeft ? eventText : '')
       .toggle(!isLeft);;
 
-    $row.append(left, arrow, right).appendTo(timeline);
+    row.append(left, arrow, right).appendTo(timeline);
   });
 }
 
