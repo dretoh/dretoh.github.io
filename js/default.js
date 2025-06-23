@@ -236,8 +236,6 @@ $(document).ready(function() {
   $('#menu li').on('click', function() {
     const section = $(this).data('section');
     switch (section) {
-      case 'aboutme':
-        loadMarkdown('assets/aboutme.md');
         break;
       case 'history':
         loadMarkdown('assets/history.md');
