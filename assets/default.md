@@ -76,15 +76,15 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 ### Organization
 <br>
-<table class="hover_up" class="styled-table" align="center">
+<table  class="styled-table" align="center">
   <thead>
     <tr><th>Name</th><th>Details</th><th>Period</th></tr>
   </thead>
   <tbody>
-    <tr><td>WhiteHatSchool</td><td>2nd Cohort/Security</td><td>2024-2024</td></tr>
-    <tr><td>KoreaCyberSecurity</td><td>1st Cohort/National Sec</td><td>2024-2024</td></tr>
-    <tr><td>PhysicalLAB</td><td>playground/Pwn</td><td>2024~.</td></tr>
-    <tr><td>-</td><td>-</td><td>2025~.</td></tr>
+    <tr class="hover_up"><td>WhiteHatSchool</td><td>2nd Cohort/Security</td><td>2024-2024</td></tr>
+    <tr class="hover_up"><td>KoreaCyberSecurity</td><td>1st Cohort/National Sec</td><td>2024-2024</td></tr>
+    <tr class="hover_up"><td>PhysicalLAB</td><td>playground/Pwn</td><td>2024~.</td></tr>
+    <tr class="hover_up"><td>-</td><td>-</td><td>2025~.</td></tr>
   </tbody>
 </table>
 <br>
@@ -97,28 +97,28 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 <br>
 
-<table class="styled-table" class="hover_up" align="center">
+<table class="styled-table" align="center">
   <tr>
     <td align="center">
-      <a href="https://www.youtube.com/watch?v=PHU06V7BhEc&list=RDPHU06V7BhEc&start_radio=1&pp=ygUL7KOg7KeAIGJvYXSgBwE%3D" target="_blank">
+      <a class="hover_up" href="https://www.youtube.com/watch?v=PHU06V7BhEc&list=RDPHU06V7BhEc&start_radio=1&pp=ygUL7KOg7KeAIGJvYXSgBwE%3D" target="_blank">
         <img src="https://i.ytimg.com/vi/PHU06V7BhEc/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLBOZd2D-Q7QyJeHvjB_aVm6PYYZmQ" width="120" alt="Track 1">
         <br>Boat
       </a>
     </td>
     <td align="center">
-      <a href="https://www.youtube.com/watch?v=ZYowmMfPYWs&list=RDZYowmMfPYWs&start_radio=1&pp=ygUVZmF0aGVyIGJyaWFuIG1ja25pZ2h0oAcB" target="_blank">
+      <a class="hover_up" href="https://www.youtube.com/watch?v=ZYowmMfPYWs&list=RDZYowmMfPYWs&start_radio=1&pp=ygUVZmF0aGVyIGJyaWFuIG1ja25pZ2h0oAcB" target="_blank">
         <img src="https://i.ytimg.com/vi/ZYowmMfPYWs/hqdefault.jpg?sqp=-oaymwFBCOADEI4CSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AG-AoAC8AGKAgwIABABGHIgWCg5MA8=&rs=AOn4CLC_Z6rQBYYUzr_ZkHAxV73uzr1Eqw" width="120" alt="Track 2">
         <br>Father
       </a>
     </td>
     <td align="center">
-      <a href="https://www.youtube.com/watch?v=haM03BYST8c&list=RDhaM03BYST8c&start_radio=1&pp=ygUOR2lmdCDrsJXtmqjsi6CgBwE%3D" target="_blank">
+      <a class="hover_up" href="https://www.youtube.com/watch?v=haM03BYST8c&list=RDhaM03BYST8c&start_radio=1&pp=ygUOR2lmdCDrsJXtmqjsi6CgBwE%3D" target="_blank">
         <img src="https://i.ytimg.com/vi/haM03BYST8c/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDQw0ykTYly__cGLSXX1dDFCmVu4Q" width="120" alt="Track 3">
         <br>Gift
       </a>
     </td>
     <td align="center">
-      <a href="https://www.youtube.com/watch?v=KqUVBn05iuM&list=RDKqUVBn05iuM&start_radio=1&pp=ygUMYnllIGJ5ZSBibHVloAcB" target="_blank">
+      <a class="hover_up" href="https://www.youtube.com/watch?v=KqUVBn05iuM&list=RDKqUVBn05iuM&start_radio=1&pp=ygUMYnllIGJ5ZSBibHVloAcB" target="_blank">
         <img src="https://i.ytimg.com/vi/KqUVBn05iuM/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDedx4QZZbu87TWRCpxhJy6Qqk77Q" width="120" alt="Track 4">
         <br>Bye bye my blue
       </a>
