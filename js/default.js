@@ -250,14 +250,12 @@ $(document).ready(function() {
         loadMarkdown('assets/default.md');
     }
   });
-
 });
 
-function createTimeline(){
-  var timeline = $('#timeline');
 
-  timeline.empty();
-  
+
+function createTimeline() {
+  var timeline = $('#timeline');
   var events = [
     'Started studying Computer Engineering.',
     'Developed a plugin for Minecraft.',
@@ -265,29 +263,88 @@ function createTimeline(){
     'Learned system security and network security.'
   ];
 
-  function createArrowBox(content, position) {
+  function createArrowBox(content) {
     var arrowBox = $('<div>', { class: 'arrow-box' });
-
     var arrow = $('<div>', { class: 'arrow' });
     var description = $('<div>', { class: 'description' }).text(content);
 
-    if (position === 'left') {
-      arrowBox.addClass('left');
-      description.css('background-color', 'lightgreen');
-      arrowBox.append(arrow);
-      arrowBox.append(description);
-    } else {
-      arrowBox.addClass('right');
-      description.css('background-color', 'lightgrey');
-      arrowBox.append(description);
-      arrowBox.append(arrow);
-    }
+    arrowBox.css({
+      'position': 'relative',
+      'text-align': 'center',
+      'display': 'inline-block',
+      'width': '100%',
+      'max-width': '100%',
+      'border-radius': '10px',
+      'margin': '10px 0'
+    });
+
+    arrow.css({
+      'width': '0',
+      'height': '0',
+      'border-left': '20px solid transparent',
+      'border-right': '20px solid transparent',
+      'border-top': '30px solid green',
+      'position': 'absolute',
+      'top': '-30px', // upside
+      'left': '50%',
+      'transform': 'translateX(-50%)'
+    });
+
+    description.css({
+      'background-color': 'lightgrey',
+      'padding': '20px',
+      'border': '2px solid #ccc',
+      'border-radius': '10px',
+      'margin': '0 auto',
+      'max-width': '90%'
+    });
+
+    
+    arrowBox.append(arrow);
+    arrowBox.append(description);
+
     return arrowBox;
   }
 
+  function createContentBox(content, position) {
+    var contentBox = $('<div>', { class: 'content-box' }).text(content);
+    
+    contentBox.css({
+      'display': 'inline-block',
+      'width': position === 'left' ? '45%' : '45%',
+      'text-align': 'center',
+      'background-color': position === 'left' ? 'lightgreen' : 'lightblue',
+      'border': '2px solid #ccc',
+      'border-radius': '10px',
+      'padding': '15px'
+    });
+
+    return contentBox;
+  }
+
   events.forEach(function(event, index) {
-    var position = index % 2 === 0 ? 'left' : 'right';
-    var arrowBox = createArrowBox(event, position);
-    timeline.append(arrowBox); 
+    var leftPosition = index % 2 === 0 ? 'left' : 'right';
+    var rightPosition = index % 2 === 0 ? 'right' : 'left';
+
+    var leftBox = createContentBox(event, leftPosition);
+    var arrowBox = createArrowBox(event);
+    var rightBox = createContentBox(event, rightPosition);
+
+    var row = $('<div>', { class: 'timeline-row' });
+
+    row.css({
+      'display': 'flex',
+      'justify-content': 'space-between',
+      'align-items': 'center',
+      'width': '100%',
+      'max-width': '100%',
+      'margin': '10px 0'
+    });
+
+    row.append(leftBox);
+    row.append(arrowBox);
+    row.append(rightBox);
+
+    timeline.append(row);
   });
 }
