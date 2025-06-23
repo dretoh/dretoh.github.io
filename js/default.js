@@ -132,6 +132,9 @@ $(document).ready(function() {
     $('#posts').empty().append('<p>Loading...</p>');
     $.get(path, function(content) {
       $('#posts').html(marked.parse(content));
+      if (path === 'assets/history.md') {
+        createTimeline();
+      }      
     }).fail(function() {
       $('#posts').html('<p>Failed to load content.</p>');
     });
@@ -225,7 +228,6 @@ $(document).ready(function() {
         });
       })
       .catch(err => {
-        console.error(err);
         $('#posts').html('<p>Failed to load posts.</p>');
       });
   }
@@ -251,50 +253,41 @@ $(document).ready(function() {
 
 });
 
-$(document).ready(function() {
-  $('[data-section="history"]').on('click', function() {
+function createTimeline(){
+  var timeline = $('#timeline');
 
-    var timeline = $('#timeline');
-    console.log('Timeline:', timeline);  
+  timeline.empty();
+  
+  var events = [
+    'Started studying Computer Engineering.',
+    'Developed a plugin for Minecraft.',
+    'Contributed to an open-source security project.',
+    'Learned system security and network security.'
+  ];
 
-    timeline.empty();
-    
-    var events = [
-      'Started studying Computer Engineering.',
-      'Developed a plugin for Minecraft.',
-      'Contributed to an open-source security project.',
-      'Learned system security and network security.'
-    ];
+  function createArrowBox(content, position) {
+    var arrowBox = $('<div>', { class: 'arrow-box' });
 
-    function createArrowBox(content, position) {
-      var arrowBox = $('<div>', { class: 'arrow-box' });
+    var arrow = $('<div>', { class: 'arrow' });
+    var description = $('<div>', { class: 'description' }).text(content);
 
-      var arrow = $('<div>', { class: 'arrow' });
-      var description = $('<div>', { class: 'description' }).text(content);
-
-      if (position === 'left') {
-        arrowBox.addClass('left');
-        description.css('background-color', 'lightgreen');
-        arrowBox.append(arrow);
-        arrowBox.append(description);
-      } else {
-        arrowBox.addClass('right');
-        description.css('background-color', 'lightgrey');
-        arrowBox.append(description);
-        arrowBox.append(arrow);
-      }
-
-      console.log('Created arrowBox:', arrowBox);
-      return arrowBox;
+    if (position === 'left') {
+      arrowBox.addClass('left');
+      description.css('background-color', 'lightgreen');
+      arrowBox.append(arrow);
+      arrowBox.append(description);
+    } else {
+      arrowBox.addClass('right');
+      description.css('background-color', 'lightgrey');
+      arrowBox.append(description);
+      arrowBox.append(arrow);
     }
+    return arrowBox;
+  }
 
-    events.forEach(function(event, index) {
-      var position = index % 2 === 0 ? 'left' : 'right';
-      var arrowBox = createArrowBox(event, position);
-      console.log('Appending arrowBox:', arrowBox); 
-      timeline.append(arrowBox); 
-    });
-
-    console.log('Timeline after append:', timeline);
+  events.forEach(function(event, index) {
+    var position = index % 2 === 0 ? 'left' : 'right';
+    var arrowBox = createArrowBox(event, position);
+    timeline.append(arrowBox); 
   });
-});
+}
