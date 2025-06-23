@@ -182,7 +182,7 @@ $(document).ready(function() {
         html += '<tbody>';
         items.forEach(item => {
           html += `
-            <tr class="post-row" class="hover_up" data-url="${item.url}">
+            <tr class="post-row hover_up" data-url="${item.url}">
               <td>${item.title}</td>
               <td>${item.date}</td>
               <td>${item.desc}</td>
