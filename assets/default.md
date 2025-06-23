@@ -23,26 +23,24 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 <br>
 
-<table class="styled-table" align="center">
-  <tbody>
-    <tr>
-      <td  class="hover_up">
-        <img src="https://img.shields.io/badge/Major-Computer%20Engineering-blue?style=for-the-badge" alt="Major">
-      </td>
-  	  <td  class="hover_up">
-        <img src="https://img.shields.io/badge/Language-C%2FC%2B%2B-brightgreen?style=for-the-badge" alt="C/C++">
-        <img src="https://img.shields.io/badge/Language-Python-yellow?style=for-the-badge" alt="Python">
-        <img src="https://img.shields.io/badge/Language-Rust-orange?style=for-the-badge" alt="Rust">
-        <img src="https://img.shields.io/badge/Language-JavaScript-lightgrey?style=for-the-badge" alt="JavaScript">
-      </td>
-      <td  class="hover_up">
-        <img src="https://img.shields.io/badge/Hobby-Minecraft-lightblue?style=for-the-badge" alt="Minecraft">
-        <img src="https://img.shields.io/badge/Hobby-Table%20Tennis-yellowgreen?style=for-the-badge" alt="Table Tennis">
-        <img src="https://img.shields.io/badge/Hobby-Ice%20Hockey-blue?style=for-the-badge" alt="Ice Hockey">
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+<div  class="hover_up">
+  <img src="https://img.shields.io/badge/Major-Computer%20Engineering-blue?style=for-the-badge" alt="Major">
+</div>
+
+<div  class="hover_up">
+  <img src="https://img.shields.io/badge/Language-C%2FC%2B%2B-brightgreen?style=for-the-badge" alt="C/C++">
+  <img src="https://img.shields.io/badge/Language-Python-yellow?style=for-the-badge" alt="Python">
+  <img src="https://img.shields.io/badge/Language-Rust-orange?style=for-the-badge" alt="Rust">
+  <img src="https://img.shields.io/badge/Language-JavaScript-lightgrey?style=for-the-badge" alt="JavaScript">
+</div>
+
+<div class="hover_up">
+  <img src="https://img.shields.io/badge/Hobby-Minecraft-lightblue?style=for-the-badge" alt="Minecraft">
+  <img src="https://img.shields.io/badge/Hobby-Table%20Tennis-yellowgreen?style=for-the-badge" alt="Table Tennis">
+  <img src="https://img.shields.io/badge/Hobby-Ice%20Hockey-blue?style=for-the-badge" alt="Ice Hockey">
+</div>
+
 <br>
 
 ---
