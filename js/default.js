@@ -321,14 +321,14 @@ function createTimeline() {
     const left = $('<div>')
       .addClass('content-box left')
       .text(isLeft ? eventText : '')
-      .toggle(isLeft);;
+      .css('visibility', isLeft ? 'visible' : 'hidden');
 
     const arrow = $('<div>').addClass('arrow-box');
 
     const right = $('<div>')
       .addClass('content-box right')
       .text(!isLeft ? eventText : '')
-      .toggle(!isLeft);;
+      .css('visibility', isLeft ?  'hidden' : 'visible');
 
     row.append(left, arrow, right).appendTo(timeline);
   });
