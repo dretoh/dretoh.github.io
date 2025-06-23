@@ -272,7 +272,7 @@ function createTimeline() {
       word-wrap: break-word;
       flex: 0 0 auto;
     }
-    .content-box.right { background-color: #f2f2f2; }
+    .content-box.right { background-color: #dff0d8; }
     .arrow-box {
       flex: 0 0 auto;
       height: 80px;
@@ -301,10 +301,10 @@ function createTimeline() {
   const available = totalW - (GAP * 2) - arrowW;
   const contentW = Math.floor(available / 2);     
   const events = [
-    '[2015-2017] \n - Develop Minecraft Server',
-    '[2024] \n - WHS2 20 \n - KoreaCyber \n - HSPACE Rust',
-    '[2024] \n - AutoHack2024 \n - CISC-2024(bpf)',
-    '[2025] \n - Internship \n - BoB 14th'
+    '[2015-2017] <br> - Develop Minecraft Server',
+    '[2024] <br> - WHS2 20 <br> - KoreaCyber <br> - HSPACE Rust',
+    '[2024] <br> - AutoHack2024 <br> - CISC-2024(bpf)',
+    '[2025] <br> - Internship <br> - BoB 14th'
   ];
 
   $.each(events, function(idx, text) {

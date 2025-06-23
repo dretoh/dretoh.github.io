@@ -118,7 +118,7 @@ footer {
   background-color: #fff;
 }
 
-.attrbl {
+.attrbl { /* for tag a or span */
   display:block;
 }
 
