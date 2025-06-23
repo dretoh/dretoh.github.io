@@ -83,32 +83,32 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 ---
 <br>
 
-### Favorite Tracks
+### Favorite Tracks### Favorite Tracks
 <br>
 <table class="styled-table">
   <tr>
     <td align="center">
       <a href="https://www.youtube.com/watch?v=PHU06V7BhEc&list=RDPHU06V7BhEc&start_radio=1&pp=ygUL7KOg7KeAIGJvYXSgBwE%3D" target="_blank">
-        <img src="https://i.ytimg.com/vi/PHU06V7BhEc/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLBOZd2D-Q7QyJeHvjB_aVm6PYYZmQ" width="120" alt="Track 1"><br>
-        Song Title 1
+        <img src="https://i.ytimg.com/vi/PHU06V7BhEc/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLBOZd2D-Q7QyJeHvjB_aVm6PYYZmQ" width="120" alt="Track 1">
+        <br>Boat
       </a>
     </td>
     <td align="center">
-      <a href="https://youtu.be/VIDEO_ID_2" target="_blank">
-        <img src="https://img.youtube.com/vi/VIDEO_ID_2/mqdefault.jpg" width="120" alt="Track 2"><br>
-        Song Title 2
+      <a href="https://www.youtube.com/watch?v=PHU06V7BhEc&list=RDPHU06V7BhEc&start_radio=1&pp=ygUL7KOg7KeAIGJvYXSgBwE%3D" target="_blank">
+        <img src="https://i.ytimg.com/vi/PHU06V7BhEc/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLBOZd2D-Q7QyJeHvjB_aVm6PYYZmQ" width="120" alt="Track 1">
+        <br>Song Title 1
       </a>
     </td>
     <td align="center">
-      <a href="https://youtu.be/VIDEO_ID_3" target="_blank">
-        <img src="https://img.youtube.com/vi/VIDEO_ID_3/mqdefault.jpg" width="120" alt="Track 3"><br>
-        Song Title 3
+      <a href="https://www.youtube.com/watch?v=PHU06V7BhEc&list=RDPHU06V7BhEc&start_radio=1&pp=ygUL7KOg7KeAIGJvYXSgBwE%3D" target="_blank">
+        <img src="https://i.ytimg.com/vi/PHU06V7BhEc/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLBOZd2D-Q7QyJeHvjB_aVm6PYYZmQ" width="120" alt="Track 1">
+        <br>Song Title 1
       </a>
     </td>
     <td align="center">
-      <a href="https://youtu.be/VIDEO_ID_4" target="_blank">
-        <img src="https://img.youtube.com/vi/VIDEO_ID_4/mqdefault.jpg" width="120" alt="Track 4"><br>
-        Song Title 4
+      <a href="https://www.youtube.com/watch?v=PHU06V7BhEc&list=RDPHU06V7BhEc&start_radio=1&pp=ygUL7KOg7KeAIGJvYXSgBwE%3D" target="_blank">
+        <img src="https://i.ytimg.com/vi/PHU06V7BhEc/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&amp;rs=AOn4CLBOZd2D-Q7QyJeHvjB_aVm6PYYZmQ" width="120" alt="Track 1">
+        <br>Song Title 1
       </a>
     </td>
   </tr>
