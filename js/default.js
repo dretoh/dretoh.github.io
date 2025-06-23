@@ -148,14 +148,12 @@ $(document).ready(function() {
       .then(files => {
         const mdFiles = files.filter(f => f.name.endsWith('.md'));
         return Promise.all(mdFiles.map(f =>
-          // 여기서 f.download_url 을 반드시 사용
           fetch(f.download_url)
             .then(r => {
               if (!r.ok) throw new Error(`Failed to fetch ${f.name}`);
               return r.text();
             })
             .then(content => {
-              // **초기 테이블용**: 앞 4줄에서만 헤더 메타데이터 추출
               const allLines = content.replace(/^\uFEFF/, '').split(/\r?\n/);
               const header = allLines.slice(0, 4).map(l => l.trim());
 
@@ -220,6 +218,9 @@ $(document).ready(function() {
               return r.text();
             })
             .then(md => {
+              const lines = md.replace(/^\uFEFF/, '').split(/\r?\n/);
+              const body = lines.slice(2).join('\n');
+
               $detailsRow.find('.post-content').html(marked.parse(md));
             })
             .catch(() => {

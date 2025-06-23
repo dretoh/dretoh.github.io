@@ -163,6 +163,8 @@ footer {
   border: 1px solid green;
 }
 
-.post-details {
-  background: white;
+
+.post-details td {
+  background-color: #fff;
 }
+
