@@ -32,13 +32,6 @@ header, footer {
 }
 
 header {
-  position: relative;
-  background-image: url('../img/backG.png');
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  width: 100%;
- 
   border-bottom: 2px dotted grey;
   padding: 10px 0;
 }
@@ -75,6 +68,15 @@ footer {
 .header-menu li:hover {
   background-color: #6C6C6C;
   color: #FFF;
+}
+
+.header-logo {
+  position: relative;
+  background-image: url('../img/backG.png');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
 }
 
 #wrapper {
