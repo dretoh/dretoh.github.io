@@ -253,84 +253,82 @@ $(document).ready(function() {
 });
 
 function createTimeline() {
-  var timeline = $('#timeline');
-  var events = [
+  const styleContent = `
+    #timeline {
+      width: 90%;
+      margin: 0 auto;
+    }
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .content-box {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      background-color: #dff0d8;
+      border-radius: 8px;
+      min-height: 60px;
+    }
+    .content-box.right {
+      background-color: #f2f2f2;
+    }
+    .arrow-box {
+      flex: 0 0 80px;
+      height: 80px;
+      background-color: #ccc;
+      clip-path: polygon(
+        0%   0%,
+        50%  13%,
+        100% 0%,
+        100% 75%,
+        50%  100%,
+        0%   75%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  `;
+  if ($('#timeline-styles').length === 0) {
+    $('<style>', { id: 'timeline-styles' })
+      .text(styleContent)
+      .appendTo('head');
+  }
+
+  let timeline = $('#timeline');
+  if (!timeline.length) {
+    return;
+  }
+
+
+  const events = [
     'Started studying Computer Engineering.',
     'Developed a plugin for Minecraft.',
     'Contributed to an open-source security project.',
     'Learned system security and network security.'
   ];
 
-  function createArrowBox(content, position) {
-    var arrowBox = $('<div>', { class: 'arrow-box' });
-    var description = $('<div>', { class: 'description' }).text(content);
+  $.each(events, function(idx, eventText) {
+    const isLeft = (idx % 2 === 0);
 
-    arrowBox.css({
-      'width': '100%',
-      'max-width': '600px',
-      'height': 'auto',
-      'position': 'relative',
-      'margin': '20px 0',
-      'clip-path': 
-        'polygon(0% 0%, \
-                50% 13%, \
-                100% 0%, \
-                100% 75%, \
-                50% 100%, \
-                0% 75%)',
-                /*
-                  top-left corner
-                  notch apex
-                  top-right corner
-                  right wing
-                  arrow tip
-                  left wing 
-                */
-      'background-color': 'lightgrey',
-      'border-radius': '10px',
-      'padding': '10px',
-      'text-align': 'center'
-    });
+    const $row = $('<div>').addClass('timeline-row');
 
-    description.css({
-      'padding': '10px',
-      'background-color': 'white',
-      'border': '2px solid #ccc',
-      'border-radius': '10px',
-      'max-width': '90%',
-      'margin': '10px auto',
-      'position': 'relative',
-    });
+    const $left = $('<div>')
+      .addClass('content-box left')
+      .text(isLeft ? eventText : '');
 
-    arrowBox.append(description);
+    const $arrow = $('<div>').addClass('arrow-box');
 
-    return arrowBox;
-  }
+    const $right = $('<div>')
+      .addClass('content-box right')
+      .text(!isLeft ? eventText : '');
 
-  events.forEach(function(event, index) {
-    var position = index % 2 === 0 ? 'left' : 'right';
-    
-    var row = $('<div>', { class: 'timeline-row' });
-
-    var leftContentBox = $('<div>', { class: 'content-box left' }).text(position === 'left' ? event : '').css({
-      'flex': '5',
-      'padding': '10px',
-      'text-align': 'center',
-      'background-color': 'lightgreen',
-      'border-radius': '8px'
-    });
-
-    var middleArrowBox = createArrowBox(event, position);
-
-    var rightContentBox = $('<div>', { class: 'content-box right' }).text(position === 'right' ? event : '').css({
-      'flex': '5',
-      'padding': '10px',
-      'text-align': 'center',
-      'background-color': 'lightgrey',
-      'border-radius': '8px'
-    });
-    row.append(leftContentBox).append(middleArrowBox).append(rightContentBox);
-    timeline.append(row);
+    $row.append($left, $arrow, $right).appendTo(timeline);
   });
 }
+
 
