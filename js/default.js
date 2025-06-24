@@ -308,9 +308,10 @@ function createTimeline() {
   const available = totalW - (GAP * 2) - arrowW;
   const contentW = Math.floor(available / 2);     
   const events = [
-    '[2015-2017] \r\n - Develop Minecraft Server',
-    '[2024] \r\n - WHS2 20 \r\n - KoreaCyber \r\n - HSPACE Rust',
-    '[2024] \r\n - AutoHack2024 \r\n - CISC-2024(bpf)',
+    '[2015-2017] \r\n - Develop Server with JAVA',
+    '[2022-2023] \r\n - Republic of Korea Army',
+    '[2024] \r\n - WHS2 20 \r\n - KoreaCyber1 \r\n - HSPACERust',
+    '[2024] \r\n - AutoHack2024 \r\n - CISC-2024',
     '[2025] \r\n - Internship \r\n - BoB 14th'
   ];
 
