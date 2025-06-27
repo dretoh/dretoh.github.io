@@ -110,6 +110,22 @@ footer {
   overflow-x: auto;
   display: table;
   width: auto;
+
+  text-align: center; 
+}
+.styled-table-list {
+  table-layout: auto;
+  word-wrap: break-word;
+
+  margin: auto;
+  border-collapse: collapse;
+  cursor: pointer;
+  /*background: rgba(255,255,240,0.8);*/
+  max-width: 100%;
+  overflow-x: auto;
+  width: auto;
+
+  text-align: center;
 }
 
 .styled-table th, .styled-table td {

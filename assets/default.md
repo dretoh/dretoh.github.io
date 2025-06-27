@@ -92,7 +92,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 ### Favorite Songs
 <br>
 
-<table class="styled-table" align="center">
+<table class="styled-table-list" align="center">
   <tr>    
     <td class="hover_up" align="center">
       <a href="https://www.youtube.com/watch?v=ZYowmMfPYWs&list=RDZYowmMfPYWs&start_radio=1&pp=ygUVZmF0aGVyIGJyaWFuIG1ja25pZ2h0oAcB" target="_blank">
