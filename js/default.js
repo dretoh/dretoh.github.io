@@ -296,6 +296,7 @@ function createTimeline() {
       background-color: #e6f4ea;
       position: relative;
       display: flex;
+      border-radius: 10px;
       align-items: center; /*세로 중앙 정*/
       justify-content: center; /*수평 중앙 정렬*/
       cursor: pointer;
@@ -306,7 +307,7 @@ function createTimeline() {
     .year-box {
       background-color: #fff;
       border: 2px solid #7cbf8f;
-      border-radius: 15%;
+      border-radius: 50%;
       padding: 10px 20px;
       font-weight: bold;
       transform: translateY(-5%);
