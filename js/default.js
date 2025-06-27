@@ -299,7 +299,7 @@ function createTimeline() {
       cursor: pointer;
       transition: background-color 0.3s ease;
 
-      margin: 10px 0px;
+      margin: 30px 0px;
     }
     .green-box:hover { background-color: #d0e8d4; }
 

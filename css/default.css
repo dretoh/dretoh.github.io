@@ -1,9 +1,9 @@
-/*font-family: "Cormorant Garamond", sans-serif;*/
+/*font-family: "Cormorant Garamond", sans-serif; or cursive*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Caveat", cursive;
+  font-family: "Caveat", serif;
   
   color: #000;
 }
