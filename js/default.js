@@ -304,7 +304,7 @@ function createTimeline() {
     .year-box {
       background-color: #fff;
       border: 2px solid #7cbf8f;
-      border-radius: 50%;
+      border-radius: 20%;
       padding: 10px 20px;
       font-weight: bold;
       transform: translateY(-5%);
