@@ -38,7 +38,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 <div>
   <img class="hover_up" src="https://img.shields.io/badge/H-Minecraft-lightblue?style=for-the-badge" alt="Minecraft">
   <img class="hover_up" src="https://img.shields.io/badge/H-Table%20Tennis-yellowgreen?style=for-the-badge" alt="Table Tennis">
-  <img class="hover_up" src="https://img.shields.io/badge/H-Ice%20Hockey-blue?style=for-the-badge" alt="Hockey">
+  <img class="hover_up" src="https://img.shields.io/badge/H-%20Hockey-blue?style=for-the-badge" alt="Hockey">
 </div>
 
 <br>
@@ -61,9 +61,9 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 ### Frequently Visited
 
 <br>
-<div class="hover_up" style="display: inline"><a href="https://dreamhack.io/users/70093" class="attrbl">DreamHack</a></div><br>
-<div class="hover_up" style="display: inline"><a href="https://www.exploit-db.com/" class="attrbl">ExploitDB</a></div><br>
-<div class="hover_up" style="display: inline"><a href="https://overthewire.org/" class="attrbl">OverTheWire</a></div>
+<div class="hover_up"><a href="https://dreamhack.io/users/70093" class="attrbl">DreamHack</a></div><br>
+<div class="hover_up"><a href="https://www.exploit-db.com/" class="attrbl">ExploitDB</a></div><br>
+<div class="hover_up"><a href="https://overthewire.org/" class="attrbl">OverTheWire</a></div>
 <br>
 
 ---
