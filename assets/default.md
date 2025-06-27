@@ -25,20 +25,20 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 
 
 <div>
-  <img class="hover_up" src="https://img.shields.io/badge/Major-Computer%20Engineering-blue?style=for-the-badge" alt="Major">
+  <img class="hover_up" src="https://img.shields.io/badge/M-Computer%20Engineering-blue?style=for-the-badge" alt="Major">
 </div>
 
 <div>
-  <img class="hover_up" src="https://img.shields.io/badge/Language-C%2FC%2B%2B-brightgreen?style=for-the-badge" alt="C/C++">
-  <img class="hover_up" src="https://img.shields.io/badge/Language-Python-yellow?style=for-the-badge" alt="Python">
-  <img class="hover_up" src="https://img.shields.io/badge/Language-Rust-orange?style=for-the-badge" alt="Rust">
-  <img class="hover_up" src="https://img.shields.io/badge/Language-JavaScript-lightgrey?style=for-the-badge" alt="JavaScript">
+  <img class="hover_up" src="https://img.shields.io/badge/L-C%2FC%2B%2B-brightgreen?style=for-the-badge" alt="C/C++">
+  <img class="hover_up" src="https://img.shields.io/badge/L-Python-yellow?style=for-the-badge" alt="Python">
+  <img class="hover_up" src="https://img.shields.io/badge/L-Rust-orange?style=for-the-badge" alt="Rust">
+  <img class="hover_up" src="https://img.shields.io/badge/L-JavaScript-lightgrey?style=for-the-badge" alt="JavaScript">
 </div>
 
 <div>
-  <img class="hover_up" src="https://img.shields.io/badge/Hobby-Minecraft-lightblue?style=for-the-badge" alt="Minecraft">
-  <img class="hover_up" src="https://img.shields.io/badge/Hobby-Table%20Tennis-yellowgreen?style=for-the-badge" alt="Table Tennis">
-  <img class="hover_up" src="https://img.shields.io/badge/Hobby-Ice%20Hockey-blue?style=for-the-badge" alt="Ice Hockey">
+  <img class="hover_up" src="https://img.shields.io/badge/H-Minecraft-lightblue?style=for-the-badge" alt="Minecraft">
+  <img class="hover_up" src="https://img.shields.io/badge/H-Table%20Tennis-yellowgreen?style=for-the-badge" alt="Table Tennis">
+  <img class="hover_up" src="https://img.shields.io/badge/H-Ice%20Hockey-blue?style=for-the-badge" alt="Hockey">
 </div>
 
 <br>
@@ -61,9 +61,9 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 ### Frequently Visited
 
 <br>
-<span class="hover_up"><a href="https://dreamhack.io/users/70093" class="attrbl">DREAMHACK/pwnlife</a></span><br>
-<span class="hover_up"><a href="https://www.exploit-db.com/" class="attrbl">ExploitDB</a></span><br>
-<span class="hover_up"><a href="https://overthewire.org/" class="attrbl">OverTheWire</a></span>
+<div class="hover_up"><a href="https://dreamhack.io/users/70093" class="attrbl">DreamHack</a></div><br>
+<div class="hover_up"><a href="https://www.exploit-db.com/" class="attrbl">ExploitDB</a></div><br>
+<div class="hover_up"><a href="https://overthewire.org/" class="attrbl">OverTheWire</a></div>
 <br>
 
 ---
