@@ -292,16 +292,17 @@ function createTimeline() {
     .timeline-row { margin: 20px 0; }
     .green-box {
       width: 100%;
-      height: 50px;
+      height: 20px;
       background-color: #e6f4ea;
       position: relative;
       display: flex;
-      align-items: center; 
-      justify-content: center;
+      align-items: center; /*세로 중앙 정*/
+      justify-content: center; /*수평 중앙 정렬*/
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
     .green-box:hover { background-color: #d0e8d4; }
+    
     .year-box {
       background-color: #fff;
       border: 2px solid #7cbf8f;
