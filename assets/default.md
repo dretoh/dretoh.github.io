@@ -79,7 +79,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
   <tbody>
     <tr class="hover_up"><td>WhiteHatSchool</td><td>2nd Cohort/Security</td><td>2024</td></tr>
     <tr class="hover_up"><td>KoreaCyberSecurity</td><td>1st Cohort/Security,Policy</td><td>2024</td></tr>
-    <tr class="hover_up"><td>PhysicalLAB</td><td>playground/Pwnable</td><td>2024~now</td></tr>
+    <tr class="hover_up"><td>PhysicalLab</td><td>playground/Pwnable</td><td>2024~now</td></tr>
     <tr class="hover_up"><td>-</td><td>-</td><td>2025~now</td></tr>
   </tbody>
 </table>
