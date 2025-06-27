@@ -305,8 +305,8 @@ function createTimeline() {
       background-color: #fff;
       border: 2px solid #e6f4ea;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      width: 66px;
+      height: 66px;
       padding: 0;
       font-weight: bold;
       transform: translateY(-5%);
