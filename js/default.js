@@ -135,7 +135,7 @@ function startshow() {
   }
 
   function startSlideshow() {
-    timer = setInterval(slideshow, 2500); 
+    timer = setInterval(slideshow, 2200); 
   }
   function stopSlideshow(){
     clearInterval(timer);
@@ -298,6 +298,8 @@ function createTimeline() {
       justify-content: center; /*수평 중앙 정렬*/
       cursor: pointer;
       transition: background-color 0.3s ease;
+
+      margin: 10px 0px;
     }
     .green-box:hover { background-color: #d0e8d4; }
 
@@ -368,7 +370,7 @@ function createTimeline() {
 
     greenBox.hover(
       () => detailsBox.stop(true,true).slideDown(300),
-      () => detailsBox.stop(true,true).slideUp(200)
+      () => detailsBox.stop(true,true).slideUp(300)
     );
   });
 }
