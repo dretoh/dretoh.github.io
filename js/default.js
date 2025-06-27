@@ -114,7 +114,7 @@ window.addEventListener('DOMContentLoaded', () =>
 
 function startshow() {
     var timer;
-    var intervalTime = 2000;
+    var intervalTime = 3500;
 
     function slideshow() {
         var $table = $('.slideshow');
@@ -125,8 +125,8 @@ function startshow() {
             var nextIndex = (index + 1) % $tds.length;
             var $next = $($tds.get(nextIndex));
 
-            $current.fadeOut(900, function() {
-                $next.fadeIn(900);
+            $current.fadeOut(1100, function() {
+                $next.fadeIn(1100);
                 $current.insertAfter($next);
             });
         });
@@ -303,8 +303,10 @@ function createTimeline() {
 
     .year-box {
       background-color: #fff;
-      border: 2px solid #7cbf8f;
+      border: 2px solid #e6f4ea;
       border-radius: 50%;
+      width: 80px;
+      height: 80px;
       padding: 0;
       font-weight: bold;
       transform: translateY(-5%);
