@@ -122,7 +122,7 @@ function startshow() {
     tdArray.push($(this));
     setTimeout(function() {
       tr.append($(tdArray[index]));
-    }, index * 500);
+    }, index * 100);
   });
 
   function slideshow() {
@@ -135,7 +135,7 @@ function startshow() {
   }
 
   function startSlideshow() {
-    timer = setInterval(slideshow, 2000); 
+    timer = setInterval(slideshow, 2500); 
   }
   function stopSlideshow(){
     clearInterval(timer);
@@ -305,12 +305,13 @@ function createTimeline() {
       background-color: #fff;
       border: 2px solid #e6f4ea;
       border-radius: 50%;
-      width: 80px;
-      height: 80px;
+      width: 50px;
+      height: 50px;
       padding: 0;
       font-weight: bold;
       transform: translateY(-5%);
 
+      text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;    
