@@ -311,6 +311,8 @@ function createTimeline() {
       font-weight: bold;
       transform: translateY(-5%);
 
+      justify-content: center;
+      align-items: center;    
     }
     .details {
       display: none;
