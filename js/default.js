@@ -111,26 +111,27 @@ window.addEventListener('DOMContentLoaded', () =>
   window.addEventListener('resize', renderCanvas);
 
 });
-
 function startSlideshow() {
-  const interval = 1000;
+  const interval = 2000;
 
-  $('.slideshow').each(function() {
+  $('table.slideshow').each(function() {
     const table = $(this);
-    const row = table.find('tbody tr').length ? table.find('tbody tr') : table.find('tr');
+    const row    = table.find('tr').first();  
+    const cells  = row.find('td');
     let timer;
 
     function switchTracks() {
-      const cells = row.find('td.hover_up');
-      if (cells.length < 2) return;
+      const all = row.find('td');
+      if (all.length < 2) return;
 
-      const first = cells.eq(0);
-      const second = cells.eq(1);
+      const first  = all.eq(0);
+      const second = all.eq(1);
 
       first.fadeOut(1000, function() {
         first.appendTo(row).fadeIn(1000);
       });
-      second.prependTo(row).hide().fadeIn(1000);
+
+      second.hide().prependTo(row).fadeIn(1000);
     }
 
     function startTimer() {
