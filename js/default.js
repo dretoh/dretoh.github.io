@@ -111,9 +111,10 @@ window.addEventListener('DOMContentLoaded', () =>
   window.addEventListener('resize', renderCanvas);
 
 });
+
 function startSlideshow() {
   const interval = 2000;
-
+  console.log("start slideshow");
   $('table.slideshow').each(function() {
     const table = $(this);
     const row    = table.find('tr').first();  
@@ -164,7 +165,10 @@ window.addEventListener('DOMContentLoaded', function(){
       $('#posts').html(marked.parse(content));
       if (path === 'assets/history.md') {
         createTimeline();
-      }      
+      }
+      if (path === 'assets/default.md') {
+        startSlideshow();
+      }     
     }).fail(function() {
       $('#posts').html('<p>Failed to load content.</p>');
     });
@@ -278,7 +282,6 @@ window.addEventListener('DOMContentLoaded', function(){
         break;
       default:
         loadMarkdown('assets/default.md');
-        startSlideshow();
     }
   });
 });
