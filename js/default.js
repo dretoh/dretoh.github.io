@@ -110,15 +110,44 @@ window.addEventListener('DOMContentLoaded', () =>
 
   window.addEventListener('resize', renderCanvas);
 
+  function startSlideshow() {
+    const interval = 1000;
+
+    $('.slideshow').each(function() {
+      const table = $(this);
+      const row = table.find('tbody tr').length ? table.find('tbody tr') : table.find('tr');
+      let timer;
+
+      function switchTracks() {
+        const cells = row.find('td.hover_up');
+        if (cells.length < 2) return;
+
+        const first = cells.eq(0);
+        const second = cells.eq(1);
+
+        first.fadeOut(1000, function() {
+          first.appendTo(row).fadeIn(1000);
+        });
+        second.prependTo(row).hide().fadeIn(1000);
+      }
+
+      function startTimer() {
+        timer = setInterval(switchTracks, interval);
+      }
+      function stopTimer() {
+        clearInterval(timer);
+      }
+
+      table.hover(stopTimer, startTimer);
+
+      startTimer();
+    });
+  }
+  startSlideshow();
 });
 
 
-
-
-
-
-
-$(document).ready(function() {
+window.addEventListener('DOMContentLoaded', function(){ 
   marked.setOptions({
     gfm: true,
     breaks: true,

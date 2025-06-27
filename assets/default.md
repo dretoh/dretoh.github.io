@@ -61,9 +61,9 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 ### Frequently Visited
 
 <br>
-<div class="hover_up"><a href="https://dreamhack.io/users/70093" class="attrbl">DreamHack</a></div><br>
-<div class="hover_up"><a href="https://www.exploit-db.com/" class="attrbl">ExploitDB</a></div><br>
-<div class="hover_up"><a href="https://overthewire.org/" class="attrbl">OverTheWire</a></div>
+<div class="hover_up" style="display: inline"><a href="https://dreamhack.io/users/70093" class="attrbl">DreamHack</a></div><br>
+<div class="hover_up" style="display: inline"><a href="https://www.exploit-db.com/" class="attrbl">ExploitDB</a></div><br>
+<div class="hover_up" style="display: inline"><a href="https://overthewire.org/" class="attrbl">OverTheWire</a></div>
 <br>
 
 ---
@@ -92,7 +92,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 ### Favorite Songs
 <br>
 
-<table class="styled-table-list" align="center">
+<table class="styled-table-list slide-show" align="center">
   <tr>    
     <td class="hover_up" align="center">
       <a href="https://www.youtube.com/watch?v=ZYowmMfPYWs&list=RDZYowmMfPYWs&start_radio=1&pp=ygUVZmF0aGVyIGJyaWFuIG1ja25pZ2h0oAcB" target="_blank">
