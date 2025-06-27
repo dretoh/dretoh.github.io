@@ -102,13 +102,14 @@ footer {
   table-layout: auto;
   word-wrap: break-word;
 
-  width: 100%;
+  margin: auto;
   border-collapse: collapse;
   cursor: pointer;
   /*background: rgba(255,255,240,0.8);*/
   max-width: 100%;
   overflow-x: auto;
-  display: block;
+  display: table;
+  width: auto;
 }
 
 .styled-table th, .styled-table td {
@@ -143,7 +144,7 @@ footer {
   white-space: normal;
   line-height: 1.5;
   padding: 10px;
-  text-align: center;
+
 }
 
 /*
