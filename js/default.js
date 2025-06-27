@@ -110,7 +110,6 @@ window.addEventListener('DOMContentLoaded', () =>
 
   window.addEventListener('resize', renderCanvas);
 
-  startSlideshow();
 });
 
 function startSlideshow() {
@@ -278,6 +277,7 @@ window.addEventListener('DOMContentLoaded', function(){
         break;
       default:
         loadMarkdown('assets/default.md');
+        startSlideshow();
     }
   });
 });
