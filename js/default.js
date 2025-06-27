@@ -128,14 +128,14 @@ function startshow() {
   function slideshow() {
     if (tdArray.length > 0) {
       var firstTd = tdArray.shift();
-      firstTd.fadeOut(500, function() {
-        tr.append(firstTd.fadeIn(500));
+      firstTd.fadeOut(1000, function() {
+        tr.append(firstTd.fadeIn(1000));
       });
     }
   }
 
   function startSlideshow() {
-    timer = setInterval(slideshow, 5000); 
+    timer = setInterval(slideshow, 2000); 
   }
   function stopSlideshow(){
     clearInterval(timer);
@@ -311,6 +311,7 @@ function createTimeline() {
       font-weight: bold;
       transform: translateY(-5%);
 
+      display: flex;
       justify-content: center;
       align-items: center;    
     }
