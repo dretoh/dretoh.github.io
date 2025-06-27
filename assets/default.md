@@ -52,7 +52,7 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 <span class="hover_up">System Security & Architecture</span><br>
 <span class="hover_up">Bluetooth 5.0+ Protocol & Security</span><br>
 <span class="hover_up">eBPF for Networking & Security</span><br>
-
+<br>
 ---
 
 <br>
@@ -60,9 +60,9 @@ I’m confident in my ability to build **Korean-style Architecture** in Minecraf
 ### Frequently Visited
 
 <br>
-<span><a href="https://dreamhack.io/users/70093" class="hover_up attrbl">DREAMHACK/pwnlife</a></span><br>
-<span><a href="https://www.exploit-db.com/" class="hover_up attrbl">ExploitDB</a></span><br>
-<span><a href="https://overthewire.org/" class="hover_up attrbl">OverTheWire</a></span>
+<span class="hover_up"><a href="https://dreamhack.io/users/70093" class="attrbl">DREAMHACK/pwnlife</a></span><br>
+<span class="hover_up"><a href="https://www.exploit-db.com/" class="attrbl">ExploitDB</a></span><br>
+<span class="hover_up"><a href="https://overthewire.org/" class="attrbl">OverTheWire</a></span>
 <br>
 
 ---
