@@ -114,7 +114,7 @@ window.addEventListener('DOMContentLoaded', () =>
 
 function startshow() {
     var timer;
-    var intervalTime = 1000;
+    var intervalTime = 2000;
 
     function slideshow() {
         var $table = $('.slideshow');
@@ -125,8 +125,8 @@ function startshow() {
             var nextIndex = (index + 1) % $tds.length;
             var $next = $($tds.get(nextIndex));
 
-            $current.fadeOut(500, function() {
-                $next.fadeIn(500);
+            $current.fadeOut(900, function() {
+                $next.fadeIn(900);
                 $current.insertAfter($next);
             });
         });
