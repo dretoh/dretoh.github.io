@@ -112,40 +112,37 @@ window.addEventListener('DOMContentLoaded', () =>
 
 });
 
-function startSlideshow() {
-  const interval = 2000;
-  console.log("start slideshow");
-  $('table.slideshow').each(function() {
-    const table = $(this);
-    const row    = table.find('tr').first();  
-    const cells  = row.find('td');
-    let timer;
+function startshow() {
+    var timer;
+    var intervalTime = 1000;
 
-    function switchTracks() {
-      const all = row.find('td');
-      if (all.length < 2) return;
+    function slideshow() {
+        var $table = $('.slideshow');
+        var $tds = $table.find('tr').children('td');
+        
+        $tds.each(function(index) {
+            var $current = $(this);
+            var nextIndex = (index + 1) % $tds.length;
+            var $next = $($tds.get(nextIndex));
 
-      const first  = all.eq(0);
-      const second = all.eq(1);
-
-      first.fadeOut(1000, function() {
-        first.appendTo(row).fadeIn(1000);
-      });
-
-      second.hide().prependTo(row).fadeIn(1000);
+            $current.fadeOut(500, function() {
+                $next.fadeIn(500);
+                $current.insertAfter($next);
+            });
+        });
     }
 
-    function startTimer() {
-      timer = setInterval(switchTracks, interval);
-    }
-    function stopTimer() {
-      clearInterval(timer);
+    function startSlideshow() {
+        timer = setInterval(slideshow, intervalTime); 
     }
 
-    table.hover(stopTimer, startTimer);
+    function stopSlideshow() {
+        clearInterval(timer); 
+    }
 
-    startTimer();
-  });
+    startSlideshow();
+
+    $('.slideshow').hover(stopSlideshow,startSlideshow);
 }
 
 
@@ -167,7 +164,7 @@ window.addEventListener('DOMContentLoaded', function(){
         createTimeline();
       }
       if (path === 'assets/default.md') {
-        startSlideshow();
+        startshow();
       }     
     }).fail(function() {
       $('#posts').html('<p>Failed to load content.</p>');
