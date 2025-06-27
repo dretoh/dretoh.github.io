@@ -113,36 +113,36 @@ window.addEventListener('DOMContentLoaded', () =>
 });
 
 function startshow() {
-    var timer;
-    var intervalTime = 3500;
+  var table = $('.slideshow');
+  var tr = table.find('tr');
+  var tds = tr.children('td');
+  var tdArray = [];
+  var timer;
+  tds.each(function(index) {
+    tdArray.push($(this));
+    setTimeout(function() {
+      tr.append($(tdArray[index]));
+    }, index * 500);
+  });
 
-    function slideshow() {
-        var $table = $('.slideshow');
-        var $tds = $table.find('tr').children('td');
-        
-        $tds.each(function(index) {
-            var $current = $(this);
-            var nextIndex = (index + 1) % $tds.length;
-            var $next = $($tds.get(nextIndex));
-
-            $current.fadeOut(1100, function() {
-                $next.fadeIn(1100);
-                $current.insertAfter($next);
-            });
-        });
+  function slideshow() {
+    if (tdArray.length > 0) {
+      var firstTd = tdArray.shift();
+      firstTd.fadeOut(500, function() {
+        tr.append(firstTd.fadeIn(500));
+      });
     }
+  }
 
-    function startSlideshow() {
-        timer = setInterval(slideshow, intervalTime); 
-    }
+  function startSlideshow() {
+    timer = setInterval(slideshow, 5000); 
+  }
+  function stopSlideshow(){
+    clearInterval(timer);
+  }
+  startSlideshow();
 
-    function stopSlideshow() {
-        clearInterval(timer); 
-    }
-
-    startSlideshow();
-
-    $('.slideshow').hover(stopSlideshow,startSlideshow);
+  $('.slideshow').hover(stopSlideshow,startSlideshow);
 }
 
 
@@ -310,6 +310,7 @@ function createTimeline() {
       padding: 0;
       font-weight: bold;
       transform: translateY(-5%);
+
     }
     .details {
       display: none;
