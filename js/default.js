@@ -341,11 +341,10 @@ function createTimeline() {
   timeline.empty();
 
   const events = [
-    '[2015–2017]\r\ntest',
-    '[2022–2023]\r\ntest2',
-    '[2024]\r\nrunning20\r\ntest2\r\ntest',
-    '[2024]\r\ntest2024\r\nCS-2024',
-    '[2025]\r\nInterntest\r\n tets'
+    '[2015–2017]\nJava-based Development',
+    '[2022–2023]\nRepublic of Korea Army',
+    '[2024]\nWHS2nd\nKoreaCyber1st\nHspace: RustProgramming\nAutoHack2024\nCISC-2024',
+    '[2025]\nInternship\nBoB14th'
   ];
 
   events.forEach(text => {
