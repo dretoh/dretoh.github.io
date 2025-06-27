@@ -253,45 +253,44 @@ $(document).ready(function() {
 });
 
 function createTimeline() {
-
   const styleContent = `
-    #timeline { width: 90%; margin: 0 auto; }
     .timeline-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .content-box {
-      padding: 10px;
+      margin: 20px 0;
       text-align: center;
-      background-color: #dff0d8;
-      border-radius: 8px;
-      min-height: 60px;
-      word-wrap: break-word;
-      flex: 0 0 auto;
-
-      white-space: pre-line;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      color: #333;
-      font-weight: 400;    
     }
-    .content-box.right { background-color: #dff0d8; }
-    .arrow-box {
-      flex: 0 0 auto;
-      height: 80px;
-      background-color: #ccc;
-      clip-path: polygon(
-        0%   0%,
-        50%  25%,
-        100% 0%,
-        100% 75%,
-        50%  100%,
-        0%   75%
-      );
+    .green-box {
+      display: inline-block;
+      background-color: #e6f4ea;  
+      border-radius: 30px;        
+      padding: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .green-box:hover {
+      background-color: #d0e8d4;
+    }
+    .year-box {
+      display: inline-block;
+      background-color: #fff;
+      border: 2px solid #7cbf8f; 
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+    .details {
+      display: none;
+      margin-top: 12px;
+      text-align: left;
+    }
+    .details ul {
+      list-style: disc inside;
+      padding: 0;
+      margin: 0;
+    }
+    .details li {
+      margin: 6px 0;
     }
   `;
   if (!$('#timeline-styles').length) {
@@ -302,45 +301,41 @@ function createTimeline() {
 
   const timeline = $('#timeline');
   if (!timeline.length) return;
-  const totalW = timeline.innerWidth();          
-  const GAP = 20;                                 
-  const arrowW = 80;                              
-  const available = totalW - (GAP * 2) - arrowW;
-  const contentW = Math.floor(available / 2);     
+
   const events = [
-    '[2015-2017] \r\n - Develop Server with JAVA',
-    '[2022-2023] \r\n - Republic of Korea Army',
-    '[2024] \r\n - WHS2 20 \r\n - KoreaCyber1 \r\n - HSPACERust',
-    '[2024] \r\n - AutoHack2024 \r\n - CISC-2024',
-    '[2025] \r\n - Internship \r\n - BoB 14th'
+    '[2015–2017]\r\ntest',
+    '[2022–2023]\r\ntest2',
+    '[2024]\r\nrunning20\r\ntest2\r\ntest',
+    '[2024]\r\ntest2024\r\nCS-2024',
+    '[2025]\r\nInterntest\r\n tets'
   ];
+  
+  timeline.empty();
 
-  $.each(events, function(idx, text) {
-    const isLeft = (idx % 2 === 0);
+  events.forEach(text => {
+    
+    const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l);
+    const year = lines[0].replace(/^\[|\]$/g, '');
+    const details = lines.slice(1);
+
     const row = $('<div>').addClass('timeline-row');
+    const greenBox = $('<div>').addClass('green-box');
+    const yearBox = $('<div>').addClass('year-box').text(year);
+    const detailsBox = $('<div>').addClass('details');
+    const ul = $('<ul>');
 
-    const leftBox = $('<div>')
-      .addClass('content-box left hover_up')
-      .text(isLeft ? text : '')
-      .css({
-        visibility: isLeft ? 'visible' : 'hidden',
-        width: contentW + 'px'
-      });
+    details.forEach(item => {
+      ul.append($('<li>').text(item));
+    });
+    detailsBox.append(ul);
 
-    const arrowBox = $('<div>')
-      .addClass('arrow-box')
-      .css('width', arrowW + 'px');
-
-    const rightBox = $('<div>')
-      .addClass('content-box right hover_up')
-      .text(!isLeft ? text : '')
-      .css({
-        visibility: !isLeft ? 'visible' : 'hidden',
-        width: contentW + 'px'
-      });
-
-    row.append(leftBox, arrowBox, rightBox);
+    greenBox.append(yearBox, detailsBox);
+    row.append(greenBox);
     timeline.append(row);
+
+    greenBox.hover(
+      () => detailsBox.stop(true,true).slideDown(300),
+      () => detailsBox.stop(true,true).slideUp(200)
+    );
   });
 }
-
