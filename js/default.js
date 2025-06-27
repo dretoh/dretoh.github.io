@@ -284,43 +284,41 @@ window.addEventListener('DOMContentLoaded', function(){
 
 function createTimeline() {
   const styleContent = `
-    .timeline-row {
-      margin: 20px 0;
-      text-align: center;
-    }
+    #timeline { width: 90%; margin: 0 auto; }
+    .timeline-row { margin: 20px 0; }
     .green-box {
-      display: inline-block;
-      background-color: #e6f4ea;  
-      border-radius: 30px;        
-      padding: 20px;
+      width: 100%;
+      height: 50px;
+      background-color: #e6f4ea;
       position: relative;
+      display: flex;
+      align-items: center; 
+      justify-content: center;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-    .green-box:hover {
-      background-color: #d0e8d4;
-    }
+    .green-box:hover { background-color: #d0e8d4; }
     .year-box {
-      display: inline-block;
       background-color: #fff;
-      border: 2px solid #7cbf8f; 
+      border: 2px solid #7cbf8f;
       border-radius: 8px;
-      padding: 8px 16px;
+      padding: 10px 20px;
       font-weight: bold;
-      margin-bottom: 12px;
+      transform: translateY(-5%);
     }
     .details {
       display: none;
-      margin-top: 12px;
+      margin: 8px 0 0 0;
+      padding: 0 10px;
       text-align: left;
     }
     .details ul {
       list-style: disc inside;
-      padding: 0;
       margin: 0;
+      padding: 0;
     }
     .details li {
-      margin: 6px 0;
+      margin: 4px 0;
     }
   `;
   if (!$('#timeline-styles').length) {
@@ -331,6 +329,7 @@ function createTimeline() {
 
   const timeline = $('#timeline');
   if (!timeline.length) return;
+  timeline.empty();
 
   const events = [
     '[2015–2017]\r\ntest',
@@ -339,11 +338,8 @@ function createTimeline() {
     '[2024]\r\ntest2024\r\nCS-2024',
     '[2025]\r\nInterntest\r\n tets'
   ];
-  
-  timeline.empty();
 
   events.forEach(text => {
-    
     const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l);
     const year = lines[0].replace(/^\[|\]$/g, '');
     const details = lines.slice(1);
@@ -354,13 +350,11 @@ function createTimeline() {
     const detailsBox = $('<div>').addClass('details');
     const ul = $('<ul>');
 
-    details.forEach(item => {
-      ul.append($('<li>').text(item));
-    });
+    details.forEach(item => ul.append($('<li>').text(item)));
     detailsBox.append(ul);
 
-    greenBox.append(yearBox, detailsBox);
-    row.append(greenBox);
+    greenBox.append(yearBox);
+    row.append(greenBox, detailsBox);
     timeline.append(row);
 
     greenBox.hover(
@@ -369,3 +363,4 @@ function createTimeline() {
     );
   });
 }
+
