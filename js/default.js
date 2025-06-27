@@ -302,11 +302,11 @@ function createTimeline() {
       transition: background-color 0.3s ease;
     }
     .green-box:hover { background-color: #d0e8d4; }
-    
+
     .year-box {
       background-color: #fff;
       border: 2px solid #7cbf8f;
-      border-radius: 8px;
+      border-radius: 15%;
       padding: 10px 20px;
       font-weight: bold;
       transform: translateY(-5%);
