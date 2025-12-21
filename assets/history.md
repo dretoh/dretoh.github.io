@@ -47,11 +47,3 @@
 </table>
 
 <br>
-
----
-<br>
-
-## Timeline
-<br>
-<div id="timeline"></div>
-<br>
