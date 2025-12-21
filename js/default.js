@@ -160,9 +160,6 @@ window.addEventListener('DOMContentLoaded', function(){
     $('#posts').empty().append('<p>Loading...</p>');
     $.get(path, function(content) {
       $('#posts').html(marked.parse(content));
-      if (path === 'assets/history.md') {
-        createTimeline();
-      }
       if (path === 'assets/default.md') {
         startshow();
       }     
@@ -283,95 +280,4 @@ window.addEventListener('DOMContentLoaded', function(){
   });
 });
 
-function createTimeline() {
-  const styleContent = `
-    #timeline { width: 90%; margin: 0 auto; }
-    .timeline-row { margin: 20px 0; }
-    .green-box {
-      width: 100%;
-      height: 20px;
-      background-color: #e6f4ea;
-      position: relative;
-      display: flex;
-      border-radius: 10px;
-      align-items: center; /*세로 중앙 정*/
-      justify-content: center; /*수평 중앙 정렬*/
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      margin: 30px 0px;
-    }
-    .green-box:hover { background-color: #d0e8d4; }
-
-    .year-box {
-      background-color: #fff;
-      border: 2px solid #e6f4ea;
-      border-radius: 50%;
-      width: 66px;
-      height: 66px;
-      padding: 0;
-      font-weight: bold;
-      transform: translateY(-5%);
-
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;    
-    }
-    .details {
-      display: none;
-      margin: 8px 0 0 0;
-      padding: 0 10px;
-      text-align: left;
-    }
-    .details ul {
-      list-style: disc inside;
-      margin: 0;
-      padding: 0;
-    }
-    .details li {
-      margin: 4px 0;
-    }
-  `;
-  if (!$('#timeline-styles').length) {
-    $('<style>', { id: 'timeline-styles' })
-      .text(styleContent)
-      .appendTo('head');
-  }
-
-  const timeline = $('#timeline');
-  if (!timeline.length) return;
-  timeline.empty();
-
-  const events = [
-    '[2015–2017]\nJava-based Development',
-    '[2022–2023]\nRepublic of Korea Army',
-    '[2024]\nWHS2nd20\nKoreaCyber1st\nHspace: RustProgramming\nAutoHack2024\nCISC-2024',
-    '[2025]\nInternship\nBoB14th'
-  ];
-
-  events.forEach(text => {
-    const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l);
-    const year = lines[0].replace(/^\[|\]$/g, '');
-    const details = lines.slice(1);
-
-    const row = $('<div>').addClass('timeline-row');
-    const greenBox = $('<div>').addClass('green-box');
-    const yearBox = $('<div>').addClass('year-box').text(year);
-    const detailsBox = $('<div>').addClass('details');
-    const ul = $('<ul>');
-
-    details.forEach(item => ul.append($('<li>').text(item)));
-    detailsBox.append(ul);
-
-    greenBox.append(yearBox);
-    row.append(greenBox, detailsBox);
-    timeline.append(row);
-
-    greenBox.hover(
-      () => detailsBox.stop(true,true).slideDown(300),
-      () => detailsBox.stop(true,true).slideUp(300)
-    );
-  });
-}
 
