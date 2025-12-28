@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () =>
 
   const canvas = document.getElementById('dretoh');
   const ctx = canvas.getContext('2d');
-  const txt = "PWNLIFE";
+  const txt = "dretoh";
   const letterSpacing = 2;
   const dashLen = 170;
   const speed = 12;
